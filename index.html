@@ -7,16 +7,26 @@
         <style> 
             h1 {border: 1caps solid;}
             h2 {border: 1caps solid;}
+            custom-colorize{ color: rgb(0, 0, 101); }
         </style>
     </head>
     <body>
         <header>
             <h1>Home</h1>
-            <h2> <b>Nick Pham, Software Developer</b></h2>
+            <h2> <b><custom-colorize>Nick Pham, Software Developer</custom-colorize></b></h2>
 
         </header>
 
         <main>
+            <hello-world></hello-world>
+            <script>    
+                class HelloWorldElement extends HTMLElement {
+                    connectedCallback() {
+                        console.log("Hello world!");
+                    }
+                }
+                customElements.define('hello-world', HelloWorldElement);
+            </script>
             <nav>
                 <ul>
                     <strong>Navigation</strong>
