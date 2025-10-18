@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <title>Nick Pham | Experiments</title>
+        <link rel="stylesheet" href="styles.css">
+        <style> 
+            h1 {border: 1caps solid;}
+            h2 {border: 1caps solid;}
+        </style>
+    </head>
+    <body>
+        <header>
+            <h1>Experiments</h1>
+        </header>
+
+        <main>
+            <div class="exp_template">   
+                <h2> Use of <code>Template</code> Element</h2>
+
+            </div>
+            <div class="exp_picture">   
+                <h2> Use of <code>Picture</code>Element</h2>
+                <picture>
+                    <source srcset="images/experiment_picture.png" type="image/png">
+                    <img src="images/experiment_picture.png" alt="Experiment Picture">
+                </picture>
+                
+
+            </div>
+            <div class="exp_audio">   
+                <h2> Use of <code>Audio</code> Element</h2>
+                <audio controls>
+                    <source src="audio/experiment_audio.mp3" type="audio/mpeg">
+                    Your browser does not support the HTML audio element.
+                </audio>
+
+            </div>
+            <div class="exp_video">   
+                <h2> Use of <code>Video</code> Element</h2>
+                <video controls>
+                    <source src="video/experiment_video.mp4" type="video/mp4">
+                    Your browser does not support the HTML video element.
+                </video>
+
+            </div>
+            <div class="exp_cavas">   
+                <h2> Use of <code>Canvas </code>Element</h2>
+                <canvas id="myCanvas">
+                    Your browser does not support the HTML canvas tag.
+                </canvas>
+                <script>
+                    let canvas = document.getElementById("myCanvas");
+                    let ctx = canvas.getContext("2d");
+                    ctx.fillStyle = "#FF0000";
+                    ctx.fillRect(0, 0, 80, 80);
+                </script>
+                <noscript>Your browser does not support JavaScript. Please enable JavaScript to see the canvas.</noscript>
+            </div>
+            <div class="exp_svg">   
+                <h2> Use of <code>SVG</code> Element</h2>
+                <svg width="100" height="100">
+                    <rect width="50" height="50" r="40" stroke="green" fill="black"/>
+                </svg>
+            </div>
+        </main>
+        <footer>
+        </footer>
+    </body>
+</html>
