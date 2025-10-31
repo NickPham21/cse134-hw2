@@ -5,8 +5,6 @@
         <title>Nick Pham | Home</title>
         <link rel="stylesheet" href="styles.css">
         <style> 
-            h1 {border: 1px solid;}
-            h2 {border: 1px solid;}
             custom-colorize{ color: rgb(0, 0, 101); }
         </style>
     </head>
@@ -18,15 +16,6 @@
         </header>
 
         <main>
-            <hello-world></hello-world>
-            <script>    
-                class HelloWorldElement extends HTMLElement {
-                    connectedCallback() {
-                        console.log("Hello world!");
-                    }
-                }
-                customElements.define('hello-world', HelloWorldElement);
-            </script>
             <nav>
                 <strong>Navigation</strong>
                 <ul>
@@ -34,17 +23,8 @@
                     <li><a href="contacts.html">Contacts</a></li>
                     <li><a href="projects.html">Projects</a></li>
                     <li><a href="involvements.html">Involvements</a></li>
-                    <li><a href="experiments.html">Experiments</a></li>
                 </ul>
             </nav>
-            <button type="button">Useless Button</button>
-            <article>
-                <dialog open>
-                    <h3>Stats:</h3>
-                    <label for="website_prog">Website Completion:</label>
-                    <progress id="website_prog" value="25" max="100"> 25% </progress>
-                </dialog>
-            </article>
         </main>
 
         <footer>
