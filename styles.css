@@ -1,14 +1,33 @@
 :root {
     --main-bg-color: #f7f2eb;
-    --main-text-color: #333333;
+    --main-text-color: #0f3b67;
     --main-border-color: #204a8c;
+    --main-header-color: #f7f2eb;
 }
 
 body {
+    font-family: 'Montserrat','Open Sans','Futura',sans-serif;
     background-color: var(--main-bg-color);
 }
 
 h1 {
+    color: var(--main-header-color);
+    border: 1rem solid var(--main-border-color);
+    background-color: var(--main-border-color);
+}
+
+h2 {
     color: var(--main-text-color);
-    background-color: var(--main-bg-color);
+    font-size: 5dvw;
+}
+
+/* CSS reset */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+nav {
+    text-align: center;
 }
