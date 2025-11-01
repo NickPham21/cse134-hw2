@@ -32,85 +32,11 @@
     font-style: normal;
 }
 
+/* Animations */
 @keyframes displayGraphicAnimation {
     0% { color: var(--main-bg-color); }
     100% { color: var(--home-graphic-color); }
 }
-
-body {
-    font-family: 'Montserrat','Open Sans',sans-serif;
-    background-color: var(--main-bg-color);
-    display: flex;
-    flex-direction: column;
-    min-height: 100vh;
-
-    header {
-        h1 {
-            font-size: 5vw;
-            color: var(--main-header-color);
-            border: 1rem solid var(--main-border-color);
-            background-color: var(--main-border-color);
-        }
-    }
-    main {
-        flex-grow : 1;
-        pre {
-            color: var(--home-graphic-color);
-            font-size: 7vmax;
-            font-weight: bold;
-            animation: displayGraphicAnimation 3s forwards
-        }
-
-        p{
-            color: var(--main-text-color);
-            font-size: 1.5rem;
-            padding: 1rem;
-        }
-
-        figure {
-            picture img {
-                border: 3px solid var(--main-border-color);
-                padding: 1px;
-            }
-            figcaption {
-                color: var(--main-text-color);
-                font-size: 2vmax;
-                text-align: left;
-            }
-        }
-        
-        a {
-
-            color: var(--main-text-color);
-            text-decoration: none;
-            
-        }
-        a:hover {
-            text-decoration: underline;
-            color: blueviolet;
-        }
-
-    }
-    footer {
-        background-color: var(--main-border-color);
-        border: 1rem solid var(--main-border-color);
-        nav {
-            color: var(--main-header-color);
-            a{
-                color: var(--main-header-color);
-                text-decoration: none;
-                
-            }
-            a:hover {
-                text-decoration: underline;
-                color: blueviolet;
-            }
-        }
-    }
-
-}
-
-
 
 /* CSS reset */
 * {
@@ -118,5 +44,103 @@ body {
     padding: 0;
     box-sizing: border-box;
 }
+
+/* Desktop and Tablet Styles */
+@media screen and (min-width: 769px) {
+    body {
+        font-family: 'Montserrat','Open Sans',sans-serif;
+        background-color: var(--main-bg-color);
+        display: flex;
+        flex-direction: column;
+        /* Ensure the body takes full viewport height so footer appears at the bottom*/
+        min-height: 100vh;
+
+        header {
+            h1 {
+                font-size: 2rem;
+                color: var(--main-header-color);
+                border: 1rem solid var(--main-border-color);
+                background-color: var(--main-border-color);
+                min-width: 100vw;
+            }
+        }
+        main {
+            flex-grow : 1;
+            h2 {
+                margin: 1rem;
+            }
+            pre {
+                color: var(--home-graphic-color);
+                font-size: 7vmax;
+                font-weight: bold;
+                animation: displayGraphicAnimation 3s forwards
+            }
+
+            p{
+                color: var(--main-text-color);
+                font-size: 1.5rem;
+                padding: 1rem;
+            }
+
+            figure {
+                margin: 1rem;
+                picture img {
+                    border: 3px solid var(--main-border-color);
+                    padding: 1px;
+                }
+                img {
+                    width: 100%;
+                    height: auto;
+                }
+                figcaption {
+                    color: var(--main-text-color);
+                    font-size: 2vmax;
+                    text-align: left;
+                }
+            }
+            
+            a {
+
+                color: var(--main-text-color);
+                text-decoration: none;
+                
+            }
+            a:hover {
+                text-decoration: underline;
+                color: blueviolet;
+            }
+
+        }
+        footer {
+            min-width: 100vw;
+            background-color: var(--main-border-color);
+            border: 1rem solid var(--main-border-color);
+            nav {
+                font-size: 0.7rem;
+                color: var(--main-header-color);
+                a{
+                    color: var(--main-header-color);
+                    text-decoration: none;
+                    
+                }
+                a:hover {
+                    text-decoration: underline;
+                    color: blueviolet;
+                }
+            }
+        }
+
+    }
+}
+
+/* Mobile Styles */
+@media screen and (max-width: 768px) {
+
+}
+
+
+
+
+
 
 
