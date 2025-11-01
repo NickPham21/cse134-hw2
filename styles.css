@@ -30,7 +30,7 @@ body {
         flex-grow : 1;
         pre {
             color: var(--home-graphic-color);
-            font-size: 10vmax;
+            font-size: 7vmax;
             font-weight: bold;
             animation: displayGraphicAnimation;
             animation-duration: 3s;

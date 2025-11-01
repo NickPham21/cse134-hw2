@@ -11,15 +11,33 @@
         </header>
 
         <main>
-            <img src="images/project_website_temp.jpg" alt="Project Websites" width="300">
-            <img src="images/project_game_temp.png" alt="Project Games" width="300">
-            <img src="images/project_app_temp.png" alt="Project Apps" width="300">
-            <ol>    
-                <li><a href="projects/websites.html">My Websites</a></li>
-                <li><a href="projects/games.html">My Games</a></li>
-                <li><a href="projects/apps.html">My Apps</a></li>
-            </ol>
-            <a href="index.html">Back to Home</a>
+            <h2>Here are some of my projects:</h2>
+            <figure> 
+                <picture>
+                    <source media="(min-width: 769px)" srcset="images/game_thumbnail_big.png">
+                    <source media="(min-width: 480px)" srcset="images/game_thumbnail_medium.png">
+                    <img src="images/game_thumbnail_small.png" alt="Project Games Thumbnail">
+                </picture>
+                <figcaption><a href="projects/games.html">My Games</a></figcaption>
+            </figure>
+            <figure> 
+                <!--Image Source: endless.horse-->
+                <picture>
+                    <source media="(min-width: 769px)" srcset="images/website_thumbnail_big.png">
+                    <source media="(min-width: 480px)" srcset="images/website_thumbnail_medium.png">
+                    <img src="images/website_thumbnail_small.png" alt="Project Websites Thumbnail">
+                </picture>
+                <figcaption><a href="projects/websites.html">My Websites</a></figcaption>
+            </figure>
+            <figure> 
+                <!--Image Source: Spin The Wheel - Random Picker on Microsoft App store, https://apps.microsoft.com/detail/9n8fwm1c28tb?hl=en-US&gl=US-->
+                <picture>
+                    <source media="(min-width: 769px)" srcset="images/app_thumbnail_big.png">
+                    <source media="(min-width: 480px)" srcset="images/app_thumbnail_medium.png">
+                    <img src="images/app_thumbnail_small.png" alt="Project Apps Thumbnail">
+                </picture>
+                <figcaption><a href="projects/apps.html">My Apps</a></figcaption>
+            </figure>
         </main>
 
         <footer>
