@@ -6,13 +6,39 @@
     --main-header-color: #f7f2eb;
 }
 
+/* Custom Fonts */
+@font-face {
+    font-family: 'Montserrat';
+    src: url('fonts/Montserrat-Regular.ttf') format('truetype');
+    font-weight: normal;
+    font-style: normal;
+}
+@font-face {
+    font-family: 'Montserrat';
+    src: url('fonts/Montserrat-Bold.ttf') format('truetype');
+    font-weight: bold;
+    font-style: normal;
+}
+@font-face {
+    font-family: 'Open Sans';
+    src: url('fonts/OpenSans-Regular.ttf') format('truetype');
+    font-weight: normal;
+    font-style: normal;
+}
+@font-face {
+    font-family: 'Open Sans';
+    src: url('fonts/OpenSans-Bold.ttf') format('truetype');
+    font-weight: bold;
+    font-style: normal;
+}
+
 @keyframes displayGraphicAnimation {
     0% { color: var(--main-bg-color); }
     100% { color: var(--home-graphic-color); }
 }
 
 body {
-    font-family: 'Montserrat','Open Sans','Futura',sans-serif;
+    font-family: 'Montserrat','Open Sans',sans-serif;
     background-color: var(--main-bg-color);
     display: flex;
     flex-direction: column;
@@ -32,15 +58,36 @@ body {
             color: var(--home-graphic-color);
             font-size: 7vmax;
             font-weight: bold;
-            animation: displayGraphicAnimation;
-            animation-duration: 3s;
-            animation-fill-mode: forwards;
+            animation: displayGraphicAnimation 3s forwards
         }
 
         p{
             color: var(--main-text-color);
             font-size: 1.5rem;
             padding: 1rem;
+        }
+
+        figure {
+            picture img {
+                border: 3px solid var(--main-border-color);
+                padding: 1px;
+            }
+            figcaption {
+                color: var(--main-text-color);
+                font-size: 2vmax;
+                text-align: left;
+            }
+        }
+        
+        a {
+
+            color: var(--main-text-color);
+            text-decoration: none;
+            
+        }
+        a:hover {
+            text-decoration: underline;
+            color: blueviolet;
         }
 
     }
@@ -58,8 +105,8 @@ body {
                 text-decoration: underline;
                 color: blueviolet;
             }
+        }
     }
-}
 
 }
 
