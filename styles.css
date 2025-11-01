@@ -1,27 +1,45 @@
 :root {
     --main-bg-color: #f7f2eb;
-    --main-text-color: #0f3b67;
+    --home-graphic-color: #0f3b67;
+    --main-text-color: #161616;
     --main-border-color: #204a8c;
     --main-header-color: #f7f2eb;
+}
+
+@keyframes displayGraphicAnimation {
+    0% { color: var(--main-bg-color); }
+    100% { color: var(--home-graphic-color); }
 }
 
 body {
     font-family: 'Montserrat','Open Sans','Futura',sans-serif;
     background-color: var(--main-bg-color);
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
+
     header {
         h1 {
-        color: var(--main-header-color);
-        border: 1rem solid var(--main-border-color);
-        background-color: var(--main-border-color);
+            font-size: 5vw;
+            color: var(--main-header-color);
+            border: 1rem solid var(--main-border-color);
+            background-color: var(--main-border-color);
         }
-        
-
     }
     main {
         flex-grow : 1;
         pre {
-        color: var(--main-text-color);
-        font-size: 5dvw;
+            color: var(--home-graphic-color);
+            font-size: 10vmax;
+            font-weight: bold;
+            animation: displayGraphicAnimation;
+            animation-duration: 3s;
+            animation-fill-mode: forwards;
+        }
+
+        p{
+            color: var(--main-text-color);
+            font-size: 1.5rem;
         }
 
     }
