@@ -1,11 +1,12 @@
 :root {
-    --main-bg-color: #f7f2eb;
-    --home-graphic-color: #0f3b67;
-    --main-text-color: #161616;
-    --main-border-color: #204a8c;
-    --main-header-color: #f7f2eb;
+    color-scheme: light dark;
+    --main-bg-color: light-dark(#f7f2eb, #080d14);
+    --home-graphic-color: light-dark(#0f3b67, #f0c498);
+    --main-text-color: light-dark(#161616, #f0f0f0);
+    --main-border-color: light-dark(#204a8c, #dfb573);
+    --main-header-color: light-dark(#f7f2eb, #080d14);
     /* Set base font size for responsive scaling */
-    font-size: 1vw;
+    font-size: 1dvw;
 }
 
 /* Custom Fonts */
