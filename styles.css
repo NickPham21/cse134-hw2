@@ -7,6 +7,7 @@
     --main-text-color: light-dark(#161616, #f0f0f0);
     --main-border-color: light-dark(#204a8c, #dfb573);
     --main-header-color: light-dark(#f7f2eb, #080d14);
+    --link-highlight-color: light-dark(#7e1fea, #cce221);
     --media-padding: 0.5rem;
     /* Set base font size for responsive scaling */
     font-size: 1dvw;
@@ -130,7 +131,7 @@
             }
             a:hover {
                 text-decoration: underline;
-                color: blueviolet;
+                color: var(--link-highlight-color, blueviolet);
             }
 
           
@@ -150,7 +151,7 @@
                 }
                 a:hover {
                     text-decoration: underline;
-                    color: blueviolet;
+                    color: var(--link-highlight-color, blueviolet);
                 }
             }
         }
