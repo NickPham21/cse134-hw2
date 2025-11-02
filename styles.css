@@ -71,6 +71,7 @@
             }
             pre {
                 color: var(--home-graphic-color);
+                margin: 1rem;
                 font-size: 7vmax;
                 font-weight: bold;
                 animation: displayGraphicAnimation 3s forwards
@@ -92,6 +93,10 @@
                     width: 100%;
                     height: auto;
                 }
+                video {
+                    width: 100%;
+                    height: auto;
+                }
                 figcaption {
                     color: var(--main-text-color);
                     font-size: 2vmax;
@@ -110,13 +115,20 @@
                 color: blueviolet;
             }
 
+            iframe {
+                border: 3px solid var(--main-border-color);
+                margin: 1rem;
+                width: 100%;
+                height: 500px;
+            }
+
         }
         footer {
             min-width: 100vw;
             background-color: var(--main-border-color);
             border: 1rem solid var(--main-border-color);
             nav {
-                font-size: 0.7rem;
+                font-size: 1rem;
                 color: var(--main-header-color);
                 a{
                     color: var(--main-header-color);
