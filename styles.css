@@ -1,3 +1,4 @@
+/* Tablet and Desktops */
 @media screen and (min-width: 769px) {
     :root {
     color-scheme: light dark;
@@ -31,7 +32,42 @@
     }
 }
 
-@media screen and (max-width: 768px) {
+/* Mobile Devices (Portrait): bigger link and font sizes for accessibility */
+@media screen and (max-width: 768px) and (orientation: portrait) {
+    :root {
+    color-scheme: light dark;
+    /* Define color variables for light and dark modes */
+    /* NOTE: if resorting to fallback, force light mode */
+    --main-bg-color: light-dark(#f7f2eb, #080d14);
+    --home-graphic-color: light-dark(#0f3b67, #f0c498);
+    --main-text-color: light-dark(#161616, #f0f0f0);
+    --main-border-color: light-dark(#204a8c, #dfb573);
+    --main-header-color: light-dark(#f7f2eb, #080d14);
+    --link-highlight-color: light-dark(#7e1fea, #cce221);
+
+    /*Define text size variables*/
+    --header-font-size: 3rem;
+    --subheader-font-size: 2rem;
+    --graphic-font-size: 8rem;
+    --paragraph-font-size: 2rem;
+    --caption-font-size: 1rem;
+    --nav-font-size: 2rem;
+    --text-padding: 1rem;
+
+    /* Define animation times */
+    --fade-in-animation-time: 3s;
+    --from-left-animation-time: 1s;
+
+    /* Define margins and paddings variable */
+    --media-padding: 0;
+    
+    /* Define base font size for responsive scaling */
+    font-size: 2dvw;
+    }
+}
+
+/* Mobile Devices (Landscape): tone down sizes for consistent display */
+@media screen and (max-width: 768px) and (orientation: landscape) {
     :root {
     color-scheme: light dark;
     /* Define color variables for light and dark modes */
@@ -46,10 +82,10 @@
     /*Define text size variables*/
     --header-font-size: 2rem;
     --subheader-font-size: 1.5rem;
-    --graphic-font-size: 7rem;
-    --paragraph-font-size: 1.5rem;
+    --graphic-font-size: 6rem;
+    --paragraph-font-size: 1.2rem;
     --caption-font-size: 1rem;
-    --nav-font-size: 1rem;
+    --nav-font-size: 1.2rem;
     --text-padding: 1rem;
 
     /* Define animation times */
@@ -109,7 +145,7 @@
     box-sizing: border-box;
 }
 
-
+/* Content */
 body {
     font-family: 'Montserrat','Open Sans',sans-serif;
     background-color: var(--main-bg-color, white);
@@ -245,11 +281,13 @@ body {
 
             color: var(--main-text-color, black);
             text-decoration: none;
+            font-size: var(--nav-font-size, 1rem);
             
         }
         a:hover {
             text-decoration: underline;
             color: var(--link-highlight-color, blueviolet);
+            font-size: var(--nav-font-size, 1rem);
         }
 
         
