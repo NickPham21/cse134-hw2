@@ -1,4 +1,5 @@
-:root {
+@media screen and (min-width: 769px) {
+    :root {
     color-scheme: light dark;
     /* Define color variables for light and dark modes */
     /* NOTE: if resorting to fallback, force light mode */
@@ -27,7 +28,42 @@
     
     /* Define base font size for responsive scaling */
     font-size: 1dvw;
+    }
 }
+
+@media screen and (max-width: 768px) {
+    :root {
+    color-scheme: light dark;
+    /* Define color variables for light and dark modes */
+    /* NOTE: if resorting to fallback, force light mode */
+    --main-bg-color: light-dark(#f7f2eb, #080d14);
+    --home-graphic-color: light-dark(#0f3b67, #f0c498);
+    --main-text-color: light-dark(#161616, #f0f0f0);
+    --main-border-color: light-dark(#204a8c, #dfb573);
+    --main-header-color: light-dark(#f7f2eb, #080d14);
+    --link-highlight-color: light-dark(#7e1fea, #cce221);
+
+    /*Define text size variables*/
+    --header-font-size: 2rem;
+    --subheader-font-size: 1.5rem;
+    --graphic-font-size: 7rem;
+    --paragraph-font-size: 1.5rem;
+    --caption-font-size: 1rem;
+    --nav-font-size: 1rem;
+    --text-padding: 1rem;
+
+    /* Define animation times */
+    --fade-in-animation-time: 3s;
+    --from-left-animation-time: 1s;
+
+    /* Define margins and paddings variable */
+    --media-padding: 0;
+    
+    /* Define base font size for responsive scaling */
+    font-size: 10dvw;
+    }
+}
+
 
 /* Custom Fonts */
 @font-face {
@@ -73,142 +109,161 @@
     box-sizing: border-box;
 }
 
-/* Desktop and Tablet Styles */
-@media screen and (min-width: 769px) {
-    body {
-        font-family: 'Montserrat','Open Sans',sans-serif;
-        background-color: var(--main-bg-color, white);
-        display: flex;
-        flex-direction: column;
 
-        /* Ensure the body takes full viewport height so footer appears at the bottom*/
-        min-height: 100vh;
+body {
+    font-family: 'Montserrat','Open Sans',sans-serif;
+    background-color: var(--main-bg-color, white);
+    display: flex;
+    flex-direction: column;
 
-        /* Prevent horizontal overflow */
-        overflow-x: hidden;
-        
+    /* Ensure the body takes full viewport height so footer appears at the bottom*/
+    min-height: 100vh;
 
-        header {
-            h1 {
-                font-size: var(--header-font-size, 2rem);
-                color: var(--main-header-color, white);
-                border: 1rem solid var(--main-border-color, darkblue);
-                background-color: var(--main-border-color, darkblue);
-                min-width: 100vw;
+    /* Prevent horizontal overflow */
+    overflow-x: hidden;
+    
+
+    header {
+        h1 {
+            font-size: var(--header-font-size, 2rem);
+            color: var(--main-header-color, white);
+            border: 1rem solid var(--main-border-color, darkblue);
+            background-color: var(--main-border-color, darkblue);
+            min-width: 100vw;
+        }
+    }
+    main {
+        flex-grow : 1;
+        /* Text Styles */
+        h2 {
+            margin: var(--subheader-font-size, 1rem);
+        }
+        .graphic {
+            color: var(--home-graphic-color, darkblue);
+            margin: 1rem;
+            font-size: var(--graphic-font-size, 7rem);
+            font-weight: bold;
+            animation: fadeIn var(--fade-in-animation-time, 3s) forwards
+        }
+
+        p{
+            color: var(--main-text-color, black);
+            font-size: var(--paragraph-font-size, 1.5rem);
+            padding: var(--text-padding, 1rem);
+            /*Animation*/
+            animation: fromLeft var(--from-left-animation-time, 0.5s) forwards;
+        }
+        p.wait{
+            color: var(--main-text-color, black);
+            font-size: var(--paragraph-font-size, 1.5rem);
+            padding: var(--text-padding, 1rem);
+            /*Animation*/
+            opacity: 0;
+            animation: fromLeft var(--from-left-animation-time, 0.5s) forwards;
+            animation-delay: var(--from-left-animation-time, 0.5s);
+        }
+        p.wait2{
+            color: var(--main-text-color, black);
+            font-size: var(--paragraph-font-size, 1.5rem);
+            padding: var(--text-padding, 1rem);
+            /*Animation*/
+            opacity: 0;
+            animation: fromLeft var(--from-left-animation-time, 0.5s) forwards;
+            animation-delay: calc(2 * var(--from-left-animation-time, 0.5s));
+        }
+        address {
+            color: var(--main-text-color, black);
+            font-size: var(--paragraph-font-size, 1.5rem);
+            padding: var(--text-padding, 1rem);
+            /*Animation*/
+            opacity: 0;
+            animation: fromLeft var(--from-left-animation-time, 0.5s) forwards;
+        }
+        form fieldset{
+            border: 0px;
+            font-size: var(--paragraph-font-size, 1.5rem);
+            padding: var(--text-padding, 1rem);
+            /*Animation*/
+            opacity: 0;
+            animation: fromLeft var(--from-left-animation-time, 0.5s) forwards;
+            animation-delay: var(--from-left-animation-time, 0.5s);
+        }
+
+        /* Media Styles */
+        figure {
+            margin: 1rem;
+            animation: fromLeft var(--from-left-animation-time, 0.5s) forwards;
+            picture img {
+                border: 0.5rem solid var(--main-border-color, darkblue);
+                padding: var(--media-padding, 0);
+                width: auto;
+                height: auto;
+            }
+            video {
+                border: 0.5rem solid var(--main-border-color, darkblue);
+                padding: var(--media-padding, 0);
+                width: auto;
+                height: auto;
+            }
+            figcaption {
+                color: var(--main-text-color, black);
+                font-size: var(--caption-font-size, 1rem);
+                text-align: left;
             }
         }
-        main {
-            flex-grow : 1;
-            /* Text Styles */
-            h2 {
-                margin: var(--subheader-font-size, 1rem);
-            }
-            .graphic {
-                color: var(--home-graphic-color, darkblue);
-                margin: 1rem;
-                font-size: var(--graphic-font-size, 7rem);
-                font-weight: bold;
-                animation: fadeIn var(--fade-in-animation-time, 3s) forwards
-            }
 
-            p{
-                color: var(--main-text-color, black);
-                font-size: var(--paragraph-font-size, 1.5rem);
-                padding: var(--text-padding, 1rem);
-                /*Animation*/
-                animation: fromLeft var(--from-left-animation-time, 0.5s) forwards;
-            }
-            p.wait{
-                color: var(--main-text-color, black);
-                font-size: var(--paragraph-font-size, 1.5rem);
-                padding: var(--text-padding, 1rem);
-                /*Animation*/
-                opacity: 0;
-                animation: fromLeft var(--from-left-animation-time, 0.5s) forwards;
-                animation-delay: var(--from-left-animation-time, 0.5s);
-            }
-            p.wait2{
-                color: var(--main-text-color, black);
-                font-size: var(--paragraph-font-size, 1.5rem);
-                padding: var(--text-padding, 1rem);
-                /*Animation*/
-                opacity: 0;
-                animation: fromLeft var(--from-left-animation-time, 0.5s) forwards;
-                animation-delay: calc(2 * var(--from-left-animation-time, 0.5s));
-            }
-            address {
-                color: var(--main-text-color, black);
-                font-size: var(--paragraph-font-size, 1.5rem);
-                padding: var(--text-padding, 1rem);
-                /*Animation*/
-                opacity: 0;
-                animation: fromLeft var(--from-left-animation-time, 0.5s) forwards;
-            }
-            form fieldset{
-                border: 0px;
-                font-size: var(--paragraph-font-size, 1.5rem);
-                padding: var(--text-padding, 1rem);
-                /*Animation*/
-                opacity: 0;
-                animation: fromLeft var(--from-left-animation-time, 0.5s) forwards;
-                animation-delay: var(--from-left-animation-time, 0.5s);
-            }
-
-            /* Media Styles */
-            figure {
-                margin: 1rem;
-                animation: fromLeft var(--from-left-animation-time, 0.5s) forwards;
-                picture img {
-                    border: 0.5rem solid var(--main-border-color, darkblue);
-                    padding: var(--media-padding, 0);
-                    width: auto;
-                    height: auto;
-                }
-                video {
-                    border: 0.5rem solid var(--main-border-color, darkblue);
-                    padding: var(--media-padding, 0);
-                    width: auto;
-                    height: auto;
-                }
-                figcaption {
-                    color: var(--main-text-color, black);
-                    font-size: var(--caption-font-size, 1rem);
-                    text-align: left;
-                }
-            }
-
-            figure.wait {
-                opacity: 0;
-                animation: fromLeft var(--from-left-animation-time, 0.5s) forwards;
-                animation-delay: var(--from-left-animation-time, 0.5s);
-                picture img {
-                    border: 0.5rem solid var(--main-border-color, darkblue);
-                    padding: var(--media-padding, 0);
-                    width: auto;
-                    height: auto;
-                }
-                video {
-                    border: 0.5rem solid var(--main-border-color, darkblue);
-                    padding: var(--media-padding, 0);
-                    width: auto;
-                    height: auto;
-                }
-                figcaption {
-                    color: var(--main-text-color, black);
-                    font-size: var(--caption-font-size, 1rem);
-                    text-align: left;
-                }
-            }
-              iframe {
+        figure.wait {
+            opacity: 0;
+            animation: fromLeft var(--from-left-animation-time, 0.5s) forwards;
+            animation-delay: var(--from-left-animation-time, 0.5s);
+            picture img {
                 border: 0.5rem solid var(--main-border-color, darkblue);
-                width: 100dvw;
-                height: 50dvh;
+                padding: var(--media-padding, 0);
+                width: auto;
+                height: auto;
             }
-
-            /* Link Styles */
-            a {
-
+            video {
+                border: 0.5rem solid var(--main-border-color, darkblue);
+                padding: var(--media-padding, 0);
+                width: auto;
+                height: auto;
+            }
+            figcaption {
                 color: var(--main-text-color, black);
+                font-size: var(--caption-font-size, 1rem);
+                text-align: left;
+            }
+        }
+            iframe {
+            border: 0.5rem solid var(--main-border-color, darkblue);
+            width: 100dvw;
+            height: 50dvh;
+        }
+
+        /* Link Styles */
+        a {
+
+            color: var(--main-text-color, black);
+            text-decoration: none;
+            
+        }
+        a:hover {
+            text-decoration: underline;
+            color: var(--link-highlight-color, blueviolet);
+        }
+
+        
+
+    }
+    footer {
+        min-width: 100vw;
+        background-color: var(--main-border-color, darkblue);
+        border: 1rem solid var(--main-border-color, darkblue);
+        nav {
+            font-size: var(--nav-font-size, 1rem);
+            color: var(--main-header-color, white);
+            a{
+                color: var(--main-header-color, white);
                 text-decoration: none;
                 
             }
@@ -216,34 +271,8 @@
                 text-decoration: underline;
                 color: var(--link-highlight-color, blueviolet);
             }
-
-          
-
-        }
-        footer {
-            min-width: 100vw;
-            background-color: var(--main-border-color, darkblue);
-            border: 1rem solid var(--main-border-color, darkblue);
-            nav {
-                font-size: var(--nav-font-size, 1rem);
-                color: var(--main-header-color, white);
-                a{
-                    color: var(--main-header-color, white);
-                    text-decoration: none;
-                    
-                }
-                a:hover {
-                    text-decoration: underline;
-                    color: var(--link-highlight-color, blueviolet);
-                }
-            }
         }
     }
-}
-
-/* Mobile Styles */
-@media screen and (max-width: 768px) {
- 
 }
 
 
