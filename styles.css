@@ -227,7 +227,7 @@ body {
             opacity: 0;
             animation: fromLeft var(--from-left-animation-time, 0.5s) forwards;
         }
-        form fieldset{
+        form {
             border: 0px;
             font-size: var(--paragraph-font-size, 1.5rem);
             padding: var(--text-padding, 1rem);
