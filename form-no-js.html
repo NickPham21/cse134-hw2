@@ -8,6 +8,14 @@
             :user-invalid {
                 border: 0.5rem solid red;
             }
+            output#error {
+                font-weight: bold;
+                display: none;
+            }
+            :user-invalid ~ output#error{
+                display: block;
+                color: red;
+            }
         </style>
     </head>
     <body>
@@ -39,7 +47,7 @@
                     <output name="info" id="info" for="name email phone comment"></output><br>
 
                     <label for="error">Error messages:</label><br>
-                    <output name="error" id="error" for="name email phone comment"></output><br>
+                    <output name="error" id="error" for="name email phone comment">One or more inputs are invalid. Please correct them and try again.</output><br>
                 </fieldset>
             </form>
         </main>
