@@ -4,6 +4,11 @@
         <meta charset="UTF-8" name="viewport" content="width=device-width, initial-scale=1.0">
         <title>Nick Pham | Contact Form (No JS)</title>
         <link rel="stylesheet" href="styles.css">
+        <style> 
+            :user-invalid {
+                border: 0.5rem solid red;
+            }
+        </style>
     </head>
     <body>
         <header>
@@ -31,10 +36,10 @@
                     <button type="submit">Submit</button><br><br>
 
                     <label for="info">Info messages:</label><br>
-                    <output name="info" id="info"></output><br>
+                    <output name="info" id="info" for="name email phone comment"></output><br>
 
                     <label for="error">Error messages:</label><br>
-                    <output name="error" id="error"></output><br>
+                    <output name="error" id="error" for="name email phone comment"></output><br>
                 </fieldset>
             </form>
         </main>
