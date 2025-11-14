@@ -10,7 +10,7 @@ const errorComment = document.getElementById('error-comment');
 name.addEventListener('input', () => {
     if (name.validity.valid) {
         errorName.textContent = '';
-        errorName.className = 'error';
+        errorName.className = 'error-hide';
     } else {
         showNameError();
     }
@@ -19,6 +19,7 @@ name.addEventListener('input', () => {
 
 
 function showNameError() {
+    errorName.className = 'error-show';
     if (name.validity.valueMissing) {
         errorName.textContent = 'Name is required.';
     } else if (name.validity.tooShort) {
