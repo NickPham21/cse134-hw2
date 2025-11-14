@@ -2,6 +2,7 @@ const name = document.getElementById('name');
 const email = document.getElementById('email');
 const phone = document.getElementById('phone');
 const comment = document.getElementById('comment');
+const numCharLabel = document.getElementById('char-count');
 const form = document.querySelector('form');
 const errorName = document.getElementById('error-name');
 const errorEmail = document.getElementById('error-email');
@@ -20,6 +21,7 @@ name.addEventListener('input', () => {
 comment.addEventListener('input', () => {
     numChar = comment.value.length;
     limit = comment.maxLength;
+    numCharLabel.textContent = `Character count: ${numChar} / ${limit}`;
     if (numChar == limit) {
         // User has reached character limit, show the error
         comment.className = 'at-character-limit';
