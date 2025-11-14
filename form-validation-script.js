@@ -18,6 +18,24 @@ name.addEventListener('input', () => {
     }
 });
 
+email.addEventListener('input', () => {
+    if (email.validity.valid) {
+        errorEmail.textContent = '';
+        errorEmail.className = 'error-hide';
+    } else {
+        showEmailError();
+    }
+});
+
+phone.addEventListener('input', () => {
+    if (phone.validity.valid) {
+        errorPhone.textContent = '';
+        errorPhone.className = 'error-hide';
+    } else {
+        showPhoneError();
+    }
+});
+
 comment.addEventListener('input', () => {
     numChar = comment.value.length;
     limit = comment.maxLength;
@@ -41,10 +59,26 @@ function showNameError() {
     errorName.className = 'error-show';
     if (name.validity.valueMissing) {
         errorName.textContent = 'Name is required.';
-    } else if (name.validity.tooShort) {
-        errorName.textContent = `Name should be at least ${name.minLength} characters; you entered ${name.value.length}.`;
     } else if (name.validity.patternMismatch) {
         errorName.textContent = 'Name can only contain letters and spaces.';
+    }
+}
+
+function showEmailError() {
+    errorEmail.className = 'error-show';
+    if (email.validity.valueMissing) {
+        errorEmail.textContent = 'Email is required.';
+    } else if (email.validity.typeMismatch) {
+        errorEmail.textContent = 'Entered value needs to be an email address.';
+    } else if (email.validity.patternMismatch) {
+        errorEmail.textContent = 'Enter a valid email address (e.g., user@example.com).';
+    }
+}
+
+function showPhoneError() {
+    errorPhone.className = 'error-show';
+    if (phone.validity.patternMismatch) {
+        errorPhone.textContent = 'Enter a valid 10-digit phone number.';
     }
 }
 
