@@ -4,15 +4,12 @@ const phone = document.getElementById('phone');
 const comment = document.getElementById('comment');
 const numCharLabel = document.getElementById('char-count');
 const form = document.querySelector('form');
-const errorName = document.getElementById('error-name');
-const errorEmail = document.getElementById('error-email');
-const errorPhone = document.getElementById('error-phone');
-const errorComment = document.getElementById('error-comment');
+const error = document.getElementById('error');
 
 name.addEventListener('input', () => {
     if (name.validity.valid) {
-        errorName.textContent = '';
-        errorName.className = 'error-hide';
+        error.textContent = '';
+        error.className = 'error-hide';
     } else {
         showNameError();
     }
@@ -20,8 +17,8 @@ name.addEventListener('input', () => {
 
 email.addEventListener('input', () => {
     if (email.validity.valid) {
-        errorEmail.textContent = '';
-        errorEmail.className = 'error-hide';
+        error.textContent = '';
+        error.className = 'error-hide';
     } else {
         showEmailError();
     }
@@ -29,8 +26,8 @@ email.addEventListener('input', () => {
 
 phone.addEventListener('input', () => {
     if (phone.validity.valid) {
-        errorPhone.textContent = '';
-        errorPhone.className = 'error-hide';
+        error.textContent = '';
+        error.className = 'error-hide';
     } else {
         showPhoneError();
     }
@@ -50,39 +47,39 @@ comment.addEventListener('input', () => {
     
     } else {
         comment.className = '';
-        errorComment.textContent = '';
-        errorComment.className = 'error-hide';
+        error.textContent = '';
+        error.className = 'error-hide';
     }
 });
 
 function showNameError() {
-    errorName.className = 'error-show';
+    error.className = 'error-show';
     if (name.validity.valueMissing) {
-        errorName.textContent = 'Name is required.';
+        error.textContent = 'Name is required.';
     } else if (name.validity.patternMismatch) {
-        errorName.textContent = 'Name can only contain letters and spaces.';
+        error.textContent = 'Name can only contain letters and spaces.';
     }
 }
 
 function showEmailError() {
-    errorEmail.className = 'error-show';
+    error.className = 'error-show';
     if (email.validity.valueMissing) {
-        errorEmail.textContent = 'Email is required.';
+        error.textContent = 'Email is required.';
     } else if (email.validity.typeMismatch) {
-        errorEmail.textContent = 'Entered value needs to be an email address.';
+        error.textContent = 'Entered value needs to be an email address.';
     } else if (email.validity.patternMismatch) {
-        errorEmail.textContent = 'Enter a valid email address (e.g., user@example.com).';
+        error.textContent = 'Enter a valid email address (e.g., user@example.com).';
     }
 }
 
 function showPhoneError() {
-    errorPhone.className = 'error-show';
+    error.className = 'error-show';
     if (phone.validity.patternMismatch) {
-        errorPhone.textContent = 'Enter a valid 10-digit phone number.';
+        error.textContent = 'Enter a valid 10-digit phone number.';
     }
 }
 
 function showCommentError() {
-    errorComment.className = 'error-show';
-    errorComment.textContent = `Comment cannot exceed ${comment.maxLength} characters.`;
+    error.className = 'error-show';
+    error.textContent = `Comment cannot exceed ${comment.maxLength} characters.`;
 }
