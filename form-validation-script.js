@@ -6,12 +6,14 @@ const numCharLabel = document.getElementById('char-count');
 const form = document.querySelector('form');
 const error = document.getElementById('error');
 
+let form_errors = [];
+
 name.addEventListener('input', () => {
     if (name.validity.valid) {
         error.textContent = '';
         error.className = 'error-hide';
     } else {
-        showNameError();
+        handleNameError();
     }
 });
 
@@ -20,7 +22,7 @@ email.addEventListener('input', () => {
         error.textContent = '';
         error.className = 'error-hide';
     } else {
-        showEmailError();
+        handleEmailError();
     }
 });
 
@@ -29,7 +31,7 @@ phone.addEventListener('input', () => {
         error.textContent = '';
         error.className = 'error-hide';
     } else {
-        showPhoneError();
+        handlePhoneError();
     }
 });
 
@@ -40,7 +42,7 @@ comment.addEventListener('input', () => {
     if (numChar == limit) {
         // User has reached character limit, show the error
         comment.className = 'at-character-limit';
-        showCommentError();
+        handleCommentError();
     } else if (numChar > limit-10 && numChar < limit) {
         // Warn user they are near the character limit
         comment.className = 'near-char-limit';
@@ -52,34 +54,41 @@ comment.addEventListener('input', () => {
     }
 });
 
-function showNameError() {
+function handleNameError() {
     error.className = 'error-show';
     if (name.validity.valueMissing) {
+        form_errors.push('name: value missing');
         error.textContent = 'Name is required.';
     } else if (name.validity.patternMismatch) {
+        form_errors.push('name: pattern mismatch');
         error.textContent = 'Name can only contain letters and spaces.';
     }
 }
 
-function showEmailError() {
+function handleEmailError() {
     error.className = 'error-show';
     if (email.validity.valueMissing) {
+        form_errors.push('email: value missing');
         error.textContent = 'Email is required.';
     } else if (email.validity.typeMismatch) {
+        form_errors.push('email: type mismatch');
         error.textContent = 'Entered value needs to be an email address.';
     } else if (email.validity.patternMismatch) {
+        form_errors.push('email: pattern mismatch');
         error.textContent = 'Enter a valid email address (e.g., user@example.com).';
     }
 }
 
-function showPhoneError() {
+function handlePhoneError() {
     error.className = 'error-show';
     if (phone.validity.patternMismatch) {
+        form_errors.push('phone: pattern mismatch');
         error.textContent = 'Enter a valid 10-digit phone number.';
     }
 }
 
-function showCommentError() {
+function handleCommentError() {
     error.className = 'error-show';
+    form_errors.push('comment: character limit exceeded');
     error.textContent = `Comment cannot exceed ${comment.maxLength} characters.`;
 }
