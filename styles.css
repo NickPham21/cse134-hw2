@@ -152,6 +152,12 @@
     100% { transform: translateX(0); opacity: 1; }
 }
 
+/* View Transitions (EXPERIMENTAL) */
+@view-transition {
+    navigation: auto;
+}
+
+
 
 /* CSS reset */
 * {
