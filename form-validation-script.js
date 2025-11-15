@@ -9,6 +9,7 @@ const errorName = document.getElementById('error-name');
 const errorEmail = document.getElementById('error-email');
 const errorPhone = document.getElementById('error-phone');
 const errorComment = document.getElementById('error-comment');
+const infoCommentCount = document.getElementById('info-comment-count');
 
 let form_errors_arr = [];
 
@@ -38,9 +39,16 @@ form.addEventListener("submit", (event) => {
 
 function showErrorMessage(error, message) {
     error.textContent = message;
-    error.className = 'error-hide'; // Reset first
+    error.className = ''; // Reset first
     void error.offsetWidth; // Force reflow
     error.className = 'error-show';
+}
+
+function showWarningMessage(info, message) {
+    info.textContent = message;
+    info.className = ''; // Reset first
+    void info.offsetWidth; // Force reflow
+    info.className = 'info-warn';
 }
 
 comment.addEventListener('input', () => {
@@ -51,11 +59,13 @@ comment.addEventListener('input', () => {
         comment.className = 'at-character-limit';
         handleCommentError();
     } else if (numChar > limit-10 && numChar < limit) {
+        showWarningMessage(infoCommentCount, `Warning: Approaching character limit of ${limit} characters!`);
         comment.className = 'near-char-limit';
     } else {
         comment.className = '';
         errorComment.textContent = '';
-        errorComment.className = 'error-hide';
+        errorComment.className = '';
+        infoCommentCount.textContent = '';
     }
 });
 
@@ -90,6 +100,7 @@ function handlePhoneError() {
 }
 
 function handleCommentError() {
+    // Note: form will still submit, this is just for user feedback
     showErrorMessage(errorComment, `Comment cannot exceed ${comment.maxLength} characters.`);
-    form_errors_arr.push('comment: character limit exceeded');
+    form_errors_arr.push('comment: character limit reached');
 }
