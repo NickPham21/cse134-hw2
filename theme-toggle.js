@@ -1,6 +1,8 @@
 const root = document.querySelector(':root');
 const themeToggleBtn = document.getElementById('theme-toggle');
-let isInverted = false;
+
+// get inverted value from local storage
+let isInverted = localStorage.getItem('isInverted');
 
 themeToggleBtn.addEventListener('click', invertTheme);
 
@@ -24,6 +26,7 @@ function invertTheme() {
         root.style.setProperty('--link-highlight-color', 'light-dark(#cce221, #7e1fea)');
         root.style.setProperty('--button-bg-color', 'light-dark(#bc842a, #437bd5)');
         isInverted = true;
+        localStorage.setItem('isInverted', 'true');
     } else {
         root.style.setProperty('--main-bg-color', 'light-dark(#f7f2eb, #080d14)');
         root.style.setProperty('--home-graphic-color', 'light-dark(#0f3b67, #f0c498)');
@@ -33,5 +36,6 @@ function invertTheme() {
         root.style.setProperty('--link-highlight-color', 'light-dark(#7e1fea, #cce221)');
         root.style.setProperty('--button-bg-color', 'light-dark(#437bd5, #bc842a)');
         isInverted = false;
+        localStorage.setItem('isInverted', 'false');
     }
 }
