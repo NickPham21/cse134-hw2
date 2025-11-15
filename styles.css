@@ -203,6 +203,7 @@ body {
         /* Text Styles */
         h2 {
             margin: var(--subheader-font-size, 1rem);
+            color: var(--main-text-color, black);
         }
         .graphic {
             color: var(--home-graphic-color, darkblue);
@@ -247,6 +248,7 @@ body {
         }
         form {
             border: 0px;
+            color: var(--main-text-color, black);
             font-size: var(--paragraph-font-size, 1.5rem);
             padding: var(--text-padding, 1rem);
             /*Animation*/
