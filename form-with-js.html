@@ -44,7 +44,7 @@
         </header>
 
         <main>
-            <form action="https://www.httpbin.org/post" method="POST">
+            <form novalidate action="https://www.httpbin.org/post" method="POST">
                 <fieldset>
                     <legend>Contact Form (No JS)</legend>
                     <label for="name">Name (required):</label><br>
@@ -69,7 +69,10 @@
                     <output name="info" id="info" for="name email phone comment"></output><br>
 
                     <label for="error">Error messages:</label><br>
-                    <output name="error" id="error" for="name email phone comment"></output><br>
+                    <output name="error-name" id="error-name" for="name"></output><br>
+                    <output name="error-email" id="error-email" for="email"></output><br>
+                    <output name="error-phone" id="error-phone" for="phone"></output><br>
+                    <output name="error-comment" id="error-comment" for="comment"></output><br>
                 </fieldset>
             </form>
         </main>
