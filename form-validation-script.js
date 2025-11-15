@@ -31,13 +31,9 @@ form.addEventListener("submit", (event) => {
     }
     
     console.log('Errors collected:', form_errors_arr);
+    form_errors_str = JSON.stringify(form_errors_arr);
+    form_errors.value = form_errors_str;
     
-    // If there were any errors, prevent form submission
-    if (form_errors_arr.length > 0) {
-        event.preventDefault();
-        form_errors_str = JSON.stringify(form_errors_arr);
-        form_errors.value = form_errors_str;
-    }
 });
 
 function showErrorMessage(error, message) {
