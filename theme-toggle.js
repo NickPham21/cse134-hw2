@@ -11,6 +11,7 @@ themeToggleBtn.addEventListener('click', invertTheme);
     --main-border-color: light-dark(#204a8c, #dfb573);
     --main-header-color: light-dark(#f7f2eb, #080d14);
     --link-highlight-color: light-dark(#7e1fea, #cce221);
+    --button-bg-color: light-dark(#437bd5, #bc842a);
 */
 // Function to invert the theme colors
 function invertTheme() {
@@ -21,6 +22,7 @@ function invertTheme() {
         root.style.setProperty('--main-border-color', 'light-dark(#dfb573, #204a8c)');
         root.style.setProperty('--main-header-color', 'light-dark(#080d14, #f7f2eb)');
         root.style.setProperty('--link-highlight-color', 'light-dark(#cce221, #7e1fea)');
+        root.style.setProperty('--button-bg-color', 'light-dark(#bc842a, #437bd5)');
         isInverted = true;
     } else {
         root.style.setProperty('--main-bg-color', 'light-dark(#f7f2eb, #080d14)');
@@ -29,6 +31,7 @@ function invertTheme() {
         root.style.setProperty('--main-border-color', 'light-dark(#204a8c, #dfb573)');
         root.style.setProperty('--main-header-color', 'light-dark(#f7f2eb, #080d14)');
         root.style.setProperty('--link-highlight-color', 'light-dark(#7e1fea, #cce221)');
+        root.style.setProperty('--button-bg-color', 'light-dark(#437bd5, #bc842a)');
         isInverted = false;
     }
 }

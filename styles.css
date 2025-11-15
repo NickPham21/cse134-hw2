@@ -10,6 +10,7 @@
     --main-border-color: light-dark(#204a8c, #dfb573);
     --main-header-color: light-dark(#f7f2eb, #080d14);
     --link-highlight-color: light-dark(#7e1fea, #cce221);
+    --button-bg-color: light-dark(#437bd5, #bc842a);
 
     /*Define text size variables*/
     --header-font-size: 2rem;
@@ -48,6 +49,7 @@
     --main-border-color: light-dark(#204a8c, #dfb573);
     --main-header-color: light-dark(#f7f2eb, #080d14);
     --link-highlight-color: light-dark(#7e1fea, #cce221);
+    --button-bg-color: light-dark(#437bd5, #bc842a);
 
     /*Define text size variables*/
     --header-font-size: 3rem;
@@ -86,6 +88,7 @@
     --main-border-color: light-dark(#204a8c, #dfb573);
     --main-header-color: light-dark(#f7f2eb, #080d14);
     --link-highlight-color: light-dark(#7e1fea, #cce221);
+    --button-bg-color: light-dark(#437bd5, #bc842a);
 
     /*Define text size variables*/
     --header-font-size: 2rem;
@@ -178,6 +181,21 @@ body {
             border: 1rem solid var(--main-border-color, darkblue);
             background-color: var(--main-border-color, darkblue);
             min-width: 100vw;
+            display: flex; /* To help align theme toggle button to the right */
+            align-items: center;
+        }
+        button#theme-toggle {
+            margin-left: auto; /* To align theme toggle button to the right */
+            font-size: 1rem;
+            padding: 0.5rem 1rem;
+            border: 0.2rem solid var(--main-bg-color, white);
+            border-radius: 0.5rem;
+            background-color: var(--button-bg-color, lightblue);
+            color: var(--main-header-color, white);
+            cursor: pointer;
+        }
+        button#theme-toggle:hover {
+            background-color: var(--link-highlight-color, blueviolet);
         }
     }
     main {
