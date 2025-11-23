@@ -333,13 +333,8 @@ body {
             width: 100dvw;
             height: 50dvh;
         }
-        :host {
-            h2 {
-                color: yellow;
-            }
-            p {
-                color: blue;
-            }
+        project-card {
+            margin: 1rem;
         }
 
         /* Link Styles */

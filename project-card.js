@@ -54,8 +54,10 @@ class ProjectCard extends HTMLElement {
         const order = parseInt(this.getAttribute('order')) || 0;
         const animDelay = order * parseInt(window.getComputedStyle(document.documentElement).getPropertyValue('--from-right-animation-time').trim().replace('s', ''));
         style.textContent = `
+
             :host {
                 display: block;
+                box-sizing: border-box;
                 border: 0.5rem solid var(--main-border-color, darkblue);
                 border-radius: 1rem;   
                 background-color: white;
@@ -63,17 +65,13 @@ class ProjectCard extends HTMLElement {
                 animation: fromRight var(--from-right-animation-time, 0.5s) forwards;
                 animation-delay: ${animDelay}s;
                 opacity: 0;
-                picture {
+                picture img {
                     padding: var(--media-padding, 0);
-                    width: var(--media-width, 80vw);
+                    width: var(--media-width, 80dvw);
+                    max-width: 80dvw;
                     height: var(--media-height, auto);
                 }
-                h2 {
-                    color: red;
-                }
-                p {
-                    color: blue;
-                }
+                
             }
             
             :host(:hover) {
