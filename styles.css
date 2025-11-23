@@ -333,6 +333,14 @@ body {
             width: 100dvw;
             height: 50dvh;
         }
+        project-card:root {
+            h2 {
+                color: yellow;
+            }
+            p {
+                color: blue;
+            }
+        }
 
         /* Link Styles */
         a {
