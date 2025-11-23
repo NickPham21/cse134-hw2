@@ -58,13 +58,16 @@ class ProjectCard extends HTMLElement {
                 display: block;
                 border: 0.5rem solid var(--main-border-color, darkblue);
                 border-radius: 1rem;   
-                padding: 1rem;
-                margin: 1rem;
                 background-color: white;
-                width: var(--media-width, 80dvw);
+                width: fit-content;
                 animation: fromRight var(--from-right-animation-time, 0.5s) forwards;
                 animation-delay: ${animDelay}s;
                 opacity: 0;
+                picture {
+                    padding: var(--media-padding, 0);
+                    width: var(--media-width, 80vw);
+                    height: var(--media-height, auto);
+                }
                 h2 {
                     color: red;
                 }
@@ -75,7 +78,7 @@ class ProjectCard extends HTMLElement {
         `;
 
         // Append elements to the shadow root
-        shadow.append(title, description, style, thumbnail, link);
+        shadow.append(style, title, thumbnail, description, link);
         
 
     }
