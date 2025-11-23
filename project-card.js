@@ -1,3 +1,12 @@
+// script to define a custom element <project-card>
+// PASS IN ATTRIBUTES: 
+    // title: the title of the project
+    // thumbnail-big: thumbnail for large screens
+    // thumbnail-med: thumbnail for medium screens
+    // thumbnail-small: thumbnail for small screens
+    // description: description of the project
+    // link: URL to the project
+    // order: order for animation delay
 class ProjectCard extends HTMLElement {
     constructor() {
         super();
@@ -66,7 +75,7 @@ class ProjectCard extends HTMLElement {
         `;
 
         // Append elements to the shadow root
-        shadow.append(title, description, style);
+        shadow.append(title, description, style, thumbnail, link);
         
 
     }
