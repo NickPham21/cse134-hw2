@@ -333,7 +333,7 @@ body {
             width: 100dvw;
             height: 50dvh;
         }
-        project-card:root {
+        :host {
             h2 {
                 color: yellow;
             }

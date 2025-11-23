@@ -14,6 +14,7 @@ class ProjectCard extends HTMLElement {
     render() {
         // Attach a shadow DOM tree to this element
         const shadow = this.attachShadow({ mode: 'open' });
+        
 
         // Create elements for the project card
         const title = document.createElement('h2');
@@ -21,15 +22,21 @@ class ProjectCard extends HTMLElement {
         const description = document.createElement('p');
         description.textContent = this.getAttribute('description') || 'Project Description';
         
-        // Apply external styles to the shadow dom
-        const linkElem = document.createElement('link');
-        linkElem.setAttribute('rel', 'stylesheet');
-        linkElem.setAttribute('href', 'styles.css');
+        // Style the component
+        const style = document.createElement('style');
+        style.textContent = `
+            :host {
+                display: block;
+                p {
+                    color: blue;
+                }
+            }
+        `;
 
         // Append elements to the shadow root
-        shadow.append(title, description, linkElem);
-        // Apply external styles to the shadow dom
-    
+        shadow.append(title, description, style);
+        
+
     }
 }
 
