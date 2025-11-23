@@ -75,6 +75,10 @@ class ProjectCard extends HTMLElement {
                     color: blue;
                 }
             }
+            
+            :host(:hover) {
+                box-shadow: 0 0 1rem rgba(0, 0, 0, 0.5);
+            }
         `;
 
         // Append elements to the shadow root
