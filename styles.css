@@ -201,17 +201,23 @@ body {
     
 
     header {
+        background-color: var(--main-border-color, darkblue);
         h1 {
             font-size: var(--header-font-size, 2rem);
             color: var(--main-header-color, white);
             border: 1rem solid var(--main-border-color, darkblue);
-            background-color: var(--main-border-color, darkblue);
             min-width: 100vw;
-            display: flex; /* To help align theme toggle button to the right */
+            display: flex; /* To help align buttons to the right */
             align-items: center;
+            
         }
-        button#theme-toggle {
-            margin-left: auto; /* To align theme toggle button to the right */
+        bttn-group {
+            margin-left: auto; /* To align button group to the right */
+            display: flex;
+            gap: 1rem; /* Space between buttons */
+        }
+        button {
+            margin: 0; /* To align buttons to the right */
             font-size: 1rem;
             padding: 0.5rem 1rem;
             border: 0.2rem solid var(--main-bg-color, white);
@@ -220,7 +226,7 @@ body {
             color: var(--main-header-color, white);
             cursor: pointer;
         }
-        button#theme-toggle:hover {
+        button:hover {
             background-color: var(--link-highlight-color, blueviolet);
         }
     }

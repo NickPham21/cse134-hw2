@@ -105,5 +105,6 @@ class ProjectCard extends HTMLElement {
 
     }
 }
-
 customElements.define('project-card', ProjectCard);
+
+// Script for button to load project card contents
