@@ -11,7 +11,6 @@ class ProjectCard extends HTMLElement {
     constructor() {
         super();
         
-
     }
     connectedCallback() {
         this.render();
@@ -107,9 +106,53 @@ class ProjectCard extends HTMLElement {
 }
 customElements.define('project-card', ProjectCard);
 
+// Class containing details about a specific project
+class Project {
+    constructor(title, thumbnailBig, thumbnailMed, thumbnailSmall, description, link, order) {
+        this.title = title;
+        this.thumbnailBig = thumbnailBig;
+        this.thumbnailMed = thumbnailMed;
+        this.thumbnailSmall = thumbnailSmall;
+        this.description = description;
+        this.link = link;
+        this.order = order || 0;
+    }
+}
+
+// Array to store project instances
+const projects = [];
+
+// Current projects
+let project1 = new Project('Last Stand', 
+    'images/game_thumbnail_big.png', 
+    'images/game_thumbnail_med.png', 
+    'images/game_thumbnail_small.png', 
+    'One of my first game projects made using Unity.  It is a top-down shooter where you fend off waves of enemies.', 
+    'projects/games.html', 0);
+let project2 = new Project('Personal Website',
+    'images/website_thumbnail_big.png',
+    'images/website_thumbnail_med.png',
+    'images/website_thumbnail_small.png',
+    'And this would be where I put my other websites... IF I HAD ANY',
+    'projects/website.html', 1);
+
+projects.push(project1, project2);
+
+// save all projects to local storage
+localStorage.setItem('projects', JSON.stringify(projects));
+
+
 // Script for button to load project card contents
 const loadLocalBtn = document.getElementById('load-local');
 const loadRemoteBtn = document.getElementById('load-remote');
 
 loadLocalBtn.addEventListener('click', loadLocalProjects);
 loadRemoteBtn.addEventListener('click', loadRemoteProjects);
+
+function loadLocalProjects() {
+    // TODO
+}
+
+function loadRemoteProjects() {
+    // TODO
+}
