@@ -1,4 +1,4 @@
-// script to define a custom element <project-card>
+// Class to define a custom element <project-card>
 // PASS IN ATTRIBUTES: 
     // title: the title of the project
     // thumbnail-big: thumbnail for large screens
@@ -125,13 +125,13 @@ const projects = [];
 // Current projects
 let project1 = new Project('Last Stand', 
     'images/game_thumbnail_big.png', 
-    'images/game_thumbnail_med.png', 
+    'images/game_thumbnail_medium.png', 
     'images/game_thumbnail_small.png', 
     'One of my first game projects made using Unity.  It is a top-down shooter where you fend off waves of enemies.', 
     'projects/games.html', 0);
 let project2 = new Project('Personal Website',
     'images/website_thumbnail_big.png',
-    'images/website_thumbnail_med.png',
+    'images/website_thumbnail_medium.png',
     'images/website_thumbnail_small.png',
     'And this would be where I put my other websites... IF I HAD ANY',
     'projects/website.html', 1);
@@ -141,18 +141,35 @@ projects.push(project1, project2);
 // save all projects to local storage
 localStorage.setItem('projects', JSON.stringify(projects));
 
+const main = document.querySelector('main');
 
 // Script for button to load project card contents
 const loadLocalBtn = document.getElementById('load-local');
 const loadRemoteBtn = document.getElementById('load-remote');
+loadLocalBtn.addEventListener('click', loadProjectsLocal);
+loadRemoteBtn.addEventListener('click', loadProjectsRemote);
 
-loadLocalBtn.addEventListener('click', loadLocalProjects);
-loadRemoteBtn.addEventListener('click', loadRemoteProjects);
+function loadProjectsLocal() {
+    // load all projects from local storage
+    const storedProjects = JSON.parse(localStorage.getItem('projects')) || [];
+    
+    // Clear existing project cards
+    main.innerHTML = '<h2>Here are some of my projects:</h2>';
 
-function loadLocalProjects() {
-    // TODO
+    // Create and append project-card elements for each stored project
+    storedProjects.forEach(projectData => {
+        const projectCard = document.createElement('project-card');
+        projectCard.setAttribute('title', projectData.title);
+        projectCard.setAttribute('thumbnail-big', projectData.thumbnailBig);
+        projectCard.setAttribute('thumbnail-med', projectData.thumbnailMed);
+        projectCard.setAttribute('thumbnail-small', projectData.thumbnailSmall);
+        projectCard.setAttribute('description', projectData.description);
+        projectCard.setAttribute('link', projectData.link);
+        projectCard.setAttribute('order', projectData.order);
+        main.appendChild(projectCard);
+    });
 }
 
-function loadRemoteProjects() {
+function loadProjectsRemote() {
     // TODO
 }
