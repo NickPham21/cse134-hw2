@@ -108,3 +108,8 @@ class ProjectCard extends HTMLElement {
 customElements.define('project-card', ProjectCard);
 
 // Script for button to load project card contents
+const loadLocalBtn = document.getElementById('load-local');
+const loadRemoteBtn = document.getElementById('load-remote');
+
+loadLocalBtn.addEventListener('click', loadLocalProjects);
+loadRemoteBtn.addEventListener('click', loadRemoteProjects);
