@@ -109,11 +109,11 @@ customElements.define('project-card', ProjectCard);
 // Class containing details about a specific project
 class Project {
     constructor(title, thumbnailBig, thumbnailMed, thumbnailSmall, description, link, order) {
-        this.title = title;
+        this.title = title || 'Project Title';
         this.thumbnailBig = thumbnailBig;
         this.thumbnailMed = thumbnailMed;
         this.thumbnailSmall = thumbnailSmall;
-        this.description = description;
+        this.description = description || 'Project Description';
         this.link = link;
         this.order = order || 0;
     }
@@ -140,6 +140,24 @@ projects.push(project1, project2);
 
 // save all projects to local storage
 localStorage.setItem('projects', JSON.stringify(projects));
+// save all projects to remote storage (fetch API)
+const url = 'https://api.jsonbin.io/v3/qs/692e7ca9d0ea881f400d248f';
+try {
+    const postResponse = await fetch(url, {
+    method: 'POST',
+    headers: {
+        'Content-Type': 'application/json',
+    },
+    body: JSON.stringify(projects)
+    });
+    if (!postResponse.ok) {
+        throw new Error('Network response was not ok');
+    }
+
+} catch (error) {
+    console.error('Failed to save projects to remote storage:', error);
+}
+
 
 const main = document.querySelector('main');
 
@@ -170,6 +188,33 @@ function loadProjectsLocal() {
     });
 }
 
-function loadProjectsRemote() {
-    // TODO
+async function loadProjectsRemote() {
+    try {
+        // load all projects from remote storage
+        const getResponse = await fetch(url);
+        if (!getResponse.ok) {
+            throw new Error('Network response was not ok');
+        }
+        const projectsString = await getResponse.json();
+        const storedProjects = JSON.parse(projectsString);
+
+        // clear existing project cards
+        main.innerHTML = '<h2>Here are some of my projects:</h2>';
+
+        // create and append project-card elements for each stored project
+        storedProjects.forEach(projectData => {
+            const projectCard = document.createElement('project-card');
+            projectCard.setAttribute('title', projectData.title);
+            projectCard.setAttribute('thumbnail-big', projectData.thumbnailBig);
+            projectCard.setAttribute('thumbnail-med', projectData.thumbnailMed);
+            projectCard.setAttribute('thumbnail-small', projectData.thumbnailSmall);
+            projectCard.setAttribute('description', projectData.description);
+            projectCard.setAttribute('link', projectData.link);
+            projectCard.setAttribute('order', projectData.order);
+            main.appendChild(projectCard);
+        });
+
+    } catch (error) {
+        console.error('failed to load projects from remote storage:', error);
+    }
 }
