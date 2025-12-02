@@ -142,22 +142,23 @@ projects.push(project1, project2);
 localStorage.setItem('projects', JSON.stringify(projects));
 // save all projects to remote storage (fetch API)
 const url = 'https://api.jsonbin.io/v3/qs/692e7ca9d0ea881f400d248f';
-try {
-    const postResponse = await fetch(url, {
-    method: 'POST',
-    headers: {
-        'Content-Type': 'application/json',
-    },
-    body: JSON.stringify(projects)
-    });
-    if (!postResponse.ok) {
-        throw new Error('Network response was not ok');
+async function saveProjectsRemote() {
+    try {
+        const postResponse = await fetch(url, {
+        method: 'POST',
+        headers: {
+            'Content-Type': 'application/json',
+        },
+        body: JSON.stringify(projects)
+        });
+        if (!postResponse.ok) {
+            throw new Error('Network response was not ok');
+        }
+    } catch (error) {
+        console.error('Failed to save projects to remote storage:', error);
     }
-
-} catch (error) {
-    console.error('Failed to save projects to remote storage:', error);
 }
-
+saveProjectsRemote();
 
 const main = document.querySelector('main');
 
