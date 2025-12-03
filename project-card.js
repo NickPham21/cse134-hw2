@@ -141,17 +141,24 @@ projects.push(project1, project2);
 // save all projects to local storage
 localStorage.setItem('projects', JSON.stringify(projects));
 // save all projects to remote storage (fetch API)
-const url = 'https://api.jsonbin.io/v3/qs/692e7ca9d0ea881f400d248f';
+const url = 'https://api.jsonbin.io/v3/b/692e80a9ae596e708f7ddf3b';
+const apiKey = '$2a$10$VXzv8I9W9QOpcp0ySXQ8/uSUSzsN.K6X7m.KhJYxbF5ZVtIx2baBm';
+
+// Function to save projects to remote storage
+    // Note: send a PUT response instead of POST to update existing bin instead of creating a new one
 async function saveProjectsRemote() {
     try {
-        const postResponse = await fetch(url, {
-        method: 'POST',
-        headers: {
-            'Content-Type': 'application/json',
-        },
-        body: JSON.stringify(projects)
+        const putResponse = await fetch(url, {
+            method: 'PUT',
+            headers: {
+                'Content-Type': 'application/json',
+                'X-Master-Key': apiKey
+            },
+            body: JSON.stringify({
+                'projects': projects
+            })
         });
-        if (!postResponse.ok) {
+        if (!putResponse.ok) {
             throw new Error('Network response was not ok');
         }
     } catch (error) {
@@ -191,13 +198,21 @@ function loadProjectsLocal() {
 
 async function loadProjectsRemote() {
     try {
-        // load all projects from remote storage
-        const getResponse = await fetch(url);
+        // fetch get request to retrieve projects from remote storage
+        const getResponse = await fetch(url, {
+            method: 'GET',
+            headers: {
+                'Content-Type': 'application/json',
+                'X-Master-Key': apiKey,
+                'X-JSON-Path': 'projects.*',
+                'X-Bin-Meta': 'false'
+            }
+        });
         if (!getResponse.ok) {
             throw new Error('Network response was not ok');
         }
-        const projectsString = await getResponse.json();
-        const storedProjects = JSON.parse(projectsString);
+        // parse the JSON response
+        const storedProjects = await getResponse.json() || [];
 
         // clear existing project cards
         main.innerHTML = '<h2>Here are some of my projects:</h2>';
