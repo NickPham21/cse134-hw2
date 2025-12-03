@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8" name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Nick Pham | CRUD</title>
+        <link rel="stylesheet" href="styles.css">
+    </head>
+    <body>
+        <header>
+            <h1>Project Card Creation (CRUD)
+                <bttn-group><button id="theme-toggle">Invert Dark/Light Mode</button><button id="load-local">Load Local</button><button id="load-remote">Load Remote</button></bttn-group>
+            </h1>
+        </header>
+
+        <main>
+            <h2>Try creating a project yourself!</h2>
+            <form> 
+                <fieldset>
+                    <legend>Create a New Project</legend>
+                    <label for="title">Project Title:</label><br>
+                    <input type="text" id="title" name="title" required><br><br>
+
+                    <label for="description">Project Description:</label><br>
+                    <textarea id="description" name="description" rows="4" cols="50" required></textarea><br><br>
+
+                    <label for="link">Project Link (URL):</label><br>
+                    <input type="url" id="link" name="link" required><br><br>
+
+                    <button type="submit" id="create-project">Create Project</button>
+                </fieldset>
+                
+            </form>
+        </main>
+
+        <footer>
+            <nav>
+                <strong>Navigation</strong>
+                <ul>
+                    <li><a href="index.html">Home</a></li>
+                    <li><a href="about.html">About</a></li>
+                    <li><a href="contacts.html">Contacts</a></li>
+                    <li><a href="projects.html">Projects</a></li>
+                    <li><a href="involvements.html">Involvements</a></li>
+                    <li><a href="form-with-js.html">Form (With JS)</a></li>
+                    <li><a href="form-no-js.html">Form (No JS)</a></li>
+                </ul>
+            </nav>
+        </footer>
+        <script src="theme-toggle.js"></script>
+        <script src="project-card.js"></script>
+        <noscript>
+        Light and Dark mode are configured to use system preferences by default. To manually switch between modes, please enable JavaScript in your browser.
+        <br>Additionally, some interactive features may not function properly without JavaScript enabled.
+        </noscript>
+    </body>
+</html>
