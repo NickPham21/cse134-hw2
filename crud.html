@@ -4,11 +4,18 @@
         <meta charset="UTF-8" name="viewport" content="width=device-width, initial-scale=1.0">
         <title>Nick Pham | CRUD</title>
         <link rel="stylesheet" href="styles.css">
+         <style>
+                /* disable animation for this form */
+                form {
+                    animation: none !important;
+                    opacity: 1 !important;
+                }
+        </style>
     </head>
     <body>
         <header>
             <h1>Project Card Creation (CRUD)
-                <bttn-group><button id="theme-toggle">Invert Dark/Light Mode</button><button id="load-local">Load Local</button><button id="load-remote">Load Remote</button></bttn-group>
+                <bttn-group><button id="theme-toggle">Invert Dark/Light Mode</button><button id="load-local">Load Local</button></bttn-group>
             </h1>
         </header>
 
@@ -16,20 +23,24 @@
             <h2>Try creating a project yourself!</h2>
             <form> 
                 <fieldset>
-                    <legend>Create a New Project</legend>
+                    <legend><b>Create a New Project</b></legend>
                     <label for="title">Project Title:</label><br>
                     <input type="text" id="title" name="title" required><br><br>
 
                     <label for="description">Project Description:</label><br>
                     <textarea id="description" name="description" rows="4" cols="50" required></textarea><br><br>
 
+                    <label for="thumbnail">Project Thumbnail:</label><br>
+                    <input type="file" id="thumbnail" name="thumbnail" required><br><br>
+
                     <label for="link">Project Link (URL):</label><br>
                     <input type="url" id="link" name="link" required><br><br>
 
                     <button type="submit" id="create-project">Create Project</button>
                 </fieldset>
-                
             </form>
+
+            <h2>Current Projects in Storage:</h2>
         </main>
 
         <footer>
