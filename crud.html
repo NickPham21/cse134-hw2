@@ -23,7 +23,7 @@
             <h2>Try creating a project yourself!</h2>
             <form> 
                 <fieldset>
-                    <legend><b>Create a New Project</b></legend>
+                    <legend><b>Project Manager</b></legend>
                     <label for="title">Project Title:</label><br>
                     <input type="text" id="title" name="title" required><br><br>
 
@@ -33,6 +33,12 @@
                     <label for="thumbnail">Project Thumbnail:</label><br>
                     <input type="file" id="thumbnail" name="thumbnail" required><br><br>
 
+                    <label for="thumbnailMed">Project Thumbnail (Medium) (optional):</label><br>
+                    <input type="file" id="thumbnailMed" name="thumbnailMed"><br><br>
+
+                    <label for="thumbnailBig">Project Thumbnail (Large) (optional):</label><br>
+                    <input type="file" id="thumbnailBig" name="thumbnailBig"><br><br>
+
                     <label for="link">Project Link (URL):</label><br>
                     <input type="url" id="link" name="link" required><br><br>
 
@@ -41,6 +47,9 @@
             </form>
 
             <h2>Current Projects in Storage:</h2>
+            <project-list>
+                <ol></ol>
+            </project-list>
         </main>
 
         <footer>

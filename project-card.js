@@ -29,13 +29,14 @@ class ProjectCard extends HTMLElement {
         const title = document.createElement('h2');
         title.textContent = this.getAttribute('title') || 'Project Title';
         // Thumbnail as <picture>
+            // note: if not provided for big/med, will fallback to small
         const thumbnail = document.createElement('picture');
         const imgBig = document.createElement('source');
         imgBig.setAttribute('media', '(min-width: 769px)');
-        imgBig.setAttribute('srcset', this.getAttribute('thumbnail-big') || '');
+        imgBig.setAttribute('srcset', this.getAttribute('thumbnail-big') || this.getAttribute('thumbnail-small'));
         const imgMed = document.createElement('source');
         imgMed.setAttribute('media', '(min-width: 480px)');
-        imgMed.setAttribute('srcset', this.getAttribute('thumbnail-med') || '');
+        imgMed.setAttribute('srcset', this.getAttribute('thumbnail-med') || this.getAttribute('thumbnail-small'));
         const imgSmall = document.createElement('img');
         imgSmall.setAttribute('src', this.getAttribute('thumbnail-small') || '');
         imgSmall.setAttribute('alt', this.getAttribute('title') || 'Project Thumbnail');
@@ -107,7 +108,7 @@ class ProjectCard extends HTMLElement {
 customElements.define('project-card', ProjectCard);
 
 // Class containing details about a specific project
-class Project {
+export class Project {
     constructor(title, thumbnailBig, thumbnailMed, thumbnailSmall, description, link, order) {
         this.title = title || 'Project Title';
         this.thumbnailBig = thumbnailBig;
