@@ -21,13 +21,17 @@ form.addEventListener('submit', (event) => {
 
     // gather form data into an object
     const formData = new FormData(form);
+    // Convert file inputs to URLs for storage
+    const thumbnailBigURL = formData.get('thumbnailBig').size > 0 ? URL.createObjectURL(formData.get('thumbnailBig')) : '';
+    const thumbnailMedURL = formData.get('thumbnailMed').size > 0 ? URL.createObjectURL(formData.get('thumbnailMed')) : '';
+    const thumbnailURL = formData.get('thumbnail').size > 0 ? URL.createObjectURL(formData.get('thumbnail')) : '';
     // create a project data object based off the form data
     // order is determined by how many projects are already stored
     let projectData = new Project(
         formData.get('title'),
-        formData.get('thumbnailBig'),
-        formData.get('thumbnailMed'),
-        formData.get('thumbnail'),
+        thumbnailBigURL,
+        thumbnailMedURL,
+        thumbnailURL,
         formData.get('description'),
         formData.get('link'),
         storedProjects.length
