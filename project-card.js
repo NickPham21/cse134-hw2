@@ -187,8 +187,8 @@ function loadProjectsLocal() {
     const storedProjects = JSON.parse(localStorage.getItem('projects')) || [];
     
     // Clear existing project cards
-    const main = document.querySelector('main');
-    main.innerHTML = '<h2>Here are some of my projects:</h2>';
+    const output = document.querySelector('project-output');
+    output.innerHTML = '';
 
     // Create and append project-card elements for each stored project
     storedProjects.forEach(projectData => {
@@ -200,7 +200,7 @@ function loadProjectsLocal() {
         projectCard.setAttribute('description', projectData.description);
         projectCard.setAttribute('link', projectData.link);
         projectCard.setAttribute('order', projectData.order);
-        main.appendChild(projectCard);
+        output.appendChild(projectCard);
     });
 }
 
@@ -223,8 +223,8 @@ async function loadProjectsRemote() {
         const storedProjects = await getResponse.json() || [];
 
         // clear existing project cards
-        const main = document.querySelector('main');
-        main.innerHTML = '<h2>Here are some of my projects:</h2>';
+        const output = document.querySelector('project-output');
+        output.innerHTML = '';
 
         // create and append project-card elements for each stored project
         storedProjects.forEach(projectData => {
@@ -236,7 +236,7 @@ async function loadProjectsRemote() {
             projectCard.setAttribute('description', projectData.description);
             projectCard.setAttribute('link', projectData.link);
             projectCard.setAttribute('order', projectData.order);
-            main.appendChild(projectCard);
+            output.appendChild(projectCard);
         });
 
     } catch (error) {
