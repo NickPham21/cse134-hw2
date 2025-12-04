@@ -46,6 +46,10 @@ form.addEventListener('submit', (event) => {
     // Reset the form after submission for future entries
     form.reset();
 
+    // if in edit mode, reset the button text
+    const submitBttn = document.getElementById('project-manager-bttn');
+    submitBttn.textContent = 'Create Project';
+
     // Update the displayed list of stored projects
     showStoredProjects();
 });
@@ -94,10 +98,13 @@ function editProject(index) {
     // get the specific project data to edit
     const projectData = storedProjects[index];
     // populate the form with the existing project data
+    // Note: image file inputs cannot be pre-populated for security reasons
     form.elements['title'].value = projectData.title;
     form.elements['description'].value = projectData.description;
     form.elements['link'].value = projectData.link;
-    // Note: image file inputs cannot be pre-populated for security reasons
+    // update project submission button to indicate edit mode
+    const submitBttn = document.getElementById('project-manager-bttn');
+    submitBttn.textContent = 'Update Project';
     // remove the project at the given index (re-add it on form submission)
     deleteProject(index);
     // no need to update the displayed list, as it will be updated on form submission
