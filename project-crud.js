@@ -58,12 +58,43 @@ function showStoredProjects() {
     projectList.innerHTML = '';
     // get the stored projects from local storage (in case of updates)
     storedProjects = JSON.parse(localStorage.getItem('projects')) || [];
-    // append each project title as a list item
+    // append each project title as a list item with buttons for edit/delete
     storedProjects.forEach((projectData, index) => {
         const listItem = document.createElement('li');
         listItem.textContent = projectData.title;
+        const editBttn = document.createElement('button');
+        editBttn.textContent = 'Edit';
+        editBttn.setAttribute('id', `edit-${index}`);
+        editBttn.addEventListener('click', () => editProject(index));
+        const deleteBttn = document.createElement('button');
+        deleteBttn.setAttribute('id', `delete-${index}`);
+        deleteBttn.addEventListener('click', () => deleteProject(index));
+        deleteBttn.textContent = 'Delete';
+        listItem.append(editBttn, deleteBttn);
         projectList.appendChild(listItem);
     });
 }
 
+// function to remove this project from storage
+function deleteProject(index) {
+    // get the stored projects from local storage (in case of updates)
+    storedProjects = JSON.parse(localStorage.getItem('projects')) || [];
+    // remove the project at the given index
+    storedProjects.splice(index, 1);
+    // put the updated projects back in local storage
+    localStorage.setItem('projects', JSON.stringify(storedProjects));
+    // update the displayed list of stored projects
+    showStoredProjects();
+}
+
+// function to edit this project in storage using the form
+function editProject(index) {
+    // get the stored projects from local storage (in case of updates)
+    storedProjects = JSON.parse(localStorage.getItem('projects')) || [];
+    // get the specific project data to edit
+    const projectData = storedProjects[index];
+    // TODO
+}
+
+// show the stored projects on initial load
 showStoredProjects();
