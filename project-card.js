@@ -168,19 +168,26 @@ async function saveProjectsRemote() {
 }
 saveProjectsRemote();
 
-const main = document.querySelector('main');
+document.addEventListener('DOMContentLoaded', () => {
+    // Script for button to load project card contents
+    const loadLocalBtn = document.getElementById('load-local');
+    const loadRemoteBtn = document.getElementById('load-remote');
+    loadLocalBtn.addEventListener('click', loadProjectsLocal);
+    if (loadRemoteBtn) {
+        // only add event listener if button exists (on CRUD page it does not)
+        loadRemoteBtn.addEventListener('click', loadProjectsRemote);
+    }
+});
 
-// Script for button to load project card contents
-const loadLocalBtn = document.getElementById('load-local');
-const loadRemoteBtn = document.getElementById('load-remote');
-loadLocalBtn.addEventListener('click', loadProjectsLocal);
-loadRemoteBtn.addEventListener('click', loadProjectsRemote);
+
+
 
 function loadProjectsLocal() {
     // load all projects from local storage
     const storedProjects = JSON.parse(localStorage.getItem('projects')) || [];
     
     // Clear existing project cards
+    const main = document.querySelector('main');
     main.innerHTML = '<h2>Here are some of my projects:</h2>';
 
     // Create and append project-card elements for each stored project
@@ -216,6 +223,7 @@ async function loadProjectsRemote() {
         const storedProjects = await getResponse.json() || [];
 
         // clear existing project cards
+        const main = document.querySelector('main');
         main.innerHTML = '<h2>Here are some of my projects:</h2>';
 
         // create and append project-card elements for each stored project
