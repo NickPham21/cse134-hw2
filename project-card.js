@@ -108,15 +108,15 @@ class ProjectCard extends HTMLElement {
 customElements.define('project-card', ProjectCard);
 
 // Class containing details about a specific project
+// Note: order does not need to be stored, as it can be inferred from the array index in the projects array
 export class Project {
-    constructor(title, thumbnailBig, thumbnailMed, thumbnailSmall, description, link, order) {
+    constructor(title, thumbnailBig, thumbnailMed, thumbnailSmall, description, link) {
         this.title = title || 'Project Title';
         this.thumbnailBig = thumbnailBig;
         this.thumbnailMed = thumbnailMed;
         this.thumbnailSmall = thumbnailSmall;
         this.description = description || 'Project Description';
         this.link = link;
-        this.order = order || 0;
     }
 }
 
@@ -129,13 +129,13 @@ let project1 = new Project('Last Stand',
     'images/game_thumbnail_medium.png', 
     'images/game_thumbnail_small.png', 
     'One of my first game projects made using Unity.  It is a top-down shooter where you fend off waves of enemies.', 
-    'projects/games.html', 0);
+    'projects/games.html');
 let project2 = new Project('Personal Website',
     'images/website_thumbnail_big.png',
     'images/website_thumbnail_medium.png',
     'images/website_thumbnail_small.png',
     'And this would be where I put my other websites... IF I HAD ANY',
-    'projects/website.html', 1);
+    'projects/website.html');
 
 projects.push(project1, project2);
 
@@ -191,7 +191,7 @@ function loadProjectsLocal() {
     output.innerHTML = '';
 
     // Create and append project-card elements for each stored project
-    storedProjects.forEach(projectData => {
+    storedProjects.forEach((projectData, index) => {
         const projectCard = document.createElement('project-card');
         projectCard.setAttribute('title', projectData.title);
         projectCard.setAttribute('thumbnail-big', projectData.thumbnailBig);
@@ -199,7 +199,7 @@ function loadProjectsLocal() {
         projectCard.setAttribute('thumbnail-small', projectData.thumbnailSmall);
         projectCard.setAttribute('description', projectData.description);
         projectCard.setAttribute('link', projectData.link);
-        projectCard.setAttribute('order', projectData.order);
+        projectCard.setAttribute('order', index);
         output.appendChild(projectCard);
     });
 }
@@ -227,7 +227,7 @@ async function loadProjectsRemote() {
         output.innerHTML = '';
 
         // create and append project-card elements for each stored project
-        storedProjects.forEach(projectData => {
+        storedProjects.forEach((projectData, index) => {
             const projectCard = document.createElement('project-card');
             projectCard.setAttribute('title', projectData.title);
             projectCard.setAttribute('thumbnail-big', projectData.thumbnailBig);
@@ -235,7 +235,7 @@ async function loadProjectsRemote() {
             projectCard.setAttribute('thumbnail-small', projectData.thumbnailSmall);
             projectCard.setAttribute('description', projectData.description);
             projectCard.setAttribute('link', projectData.link);
-            projectCard.setAttribute('order', projectData.order);
+            projectCard.setAttribute('order', index);
             output.appendChild(projectCard);
         });
 

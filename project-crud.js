@@ -26,7 +26,6 @@ form.addEventListener('submit', (event) => {
     const thumbnailMedURL = formData.get('thumbnailMed').size > 0 ? URL.createObjectURL(formData.get('thumbnailMed')) : '';
     const thumbnailURL = formData.get('thumbnail').size > 0 ? URL.createObjectURL(formData.get('thumbnail')) : '';
     // create a project data object based off the form data
-    // order is determined by how many projects are already stored
     let projectData = new Project(
         formData.get('title'),
         thumbnailBigURL,
@@ -34,7 +33,6 @@ form.addEventListener('submit', (event) => {
         thumbnailURL,
         formData.get('description'),
         formData.get('link'),
-        storedProjects.length
     );
 
     // Get projects currently in local storage (in case of updates)
