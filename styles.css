@@ -1,6 +1,5 @@
-/* Tablet and Desktops */
-@media screen and (min-width: 769px) {
-    :root {
+/* Global CSS Variables, applies to all device types */
+:root {
     color-scheme: light dark;
     /* Define color variables for light and dark modes */
     /* NOTE: if resorting to fallback, force light mode */
@@ -11,110 +10,84 @@
     --main-header-color: light-dark(#f7f2eb, #080d14);
     --link-highlight-color: light-dark(#7e1fea, #cce221);
     --button-bg-color: light-dark(#437bd5, #bc842a);
-
-    /*Define text size variables*/
-    --header-font-size: 2rem;
-    --subheader-font-size: 1.5rem;
-    --graphic-font-size: 7rem;
-    --paragraph-font-size: 1.5rem;
-    --caption-font-size: 1rem;
-    --nav-font-size: 1rem;
-    --text-padding: 1rem;
-
     /* Define animation times */
     --fade-in-animation-time: 3s;
     --from-right-animation-time: 1s;
+}
 
-    /* Define margins and paddings variable */
-    --media-padding: 0;
+/* Media Query Variables (mainly for font sizes and media sizes) */
+/* Tablet and Desktops */
+@media screen and (min-width: 769px) {
+    :root {
+        /*Define text size variables*/
+        --header-font-size: 2rem;
+        --subheader-font-size: 1.5rem;
+        --graphic-font-size: 7rem;
+        --paragraph-font-size: 1.5rem;
+        --caption-font-size: 1rem;
+        --nav-font-size: 1rem;
+        --text-padding: 1rem;
 
-    /* Define media sizes */
-    --media-width: 80vw;
-    --media-height: auto;
-    --project-card-width: 50dvw;
+        /* Define margins and paddings variable */
+        --media-padding: 0;
 
-    /* Define base font size for responsive scaling */
-    font-size: 1dvw;
+        /* Define media sizes */
+        --media-width: 80vw;
+        --media-height: auto;
+        --project-card-width: 50dvw;
+
+        /* Define base font size for responsive scaling */
+        font-size: 1dvw;
     }
 }
 
 /* Mobile Devices (Portrait): bigger link and font sizes for accessibility */
 @media screen and (max-width: 768px) and (orientation: portrait) {
     :root {
-    color-scheme: light dark;
-    /* Define color variables for light and dark modes */
-    /* NOTE: if resorting to fallback, force light mode */
-    --main-bg-color: light-dark(#f7f2eb, #080d14);
-    --home-graphic-color: light-dark(#0f3b67, #f0c498);
-    --main-text-color: light-dark(#161616, #f0f0f0);
-    --main-border-color: light-dark(#204a8c, #dfb573);
-    --main-header-color: light-dark(#f7f2eb, #080d14);
-    --link-highlight-color: light-dark(#7e1fea, #cce221);
-    --button-bg-color: light-dark(#437bd5, #bc842a);
+        /*Define text size variables*/
+        --header-font-size: 3rem;
+        --subheader-font-size: 2rem;
+        --graphic-font-size: 8rem;
+        --paragraph-font-size: 2rem;
+        --caption-font-size: 1rem;
+        --nav-font-size: 2rem;
+        --text-padding: 1rem;
 
-    /*Define text size variables*/
-    --header-font-size: 3rem;
-    --subheader-font-size: 2rem;
-    --graphic-font-size: 8rem;
-    --paragraph-font-size: 2rem;
-    --caption-font-size: 1rem;
-    --nav-font-size: 2rem;
-    --text-padding: 1rem;
+        /* Define margins and paddings variable */
+        --media-padding: 0;
 
-    /* Define animation times */
-    --fade-in-animation-time: 3s;
-    --from-right-animation-time: 1s;
-
-    /* Define margins and paddings variable */
-    --media-padding: 0;
-
-    /* Define media sizes */
-    --media-width: 80vw;
-    --media-height: auto;
-    --project-card-width: 70dvw;
-    
-    /* Define base font size for responsive scaling */
-    font-size: 2dvw;
+        /* Define media sizes */
+        --media-width: 80vw;
+        --media-height: auto;
+        --project-card-width: 70dvw;
+        
+        /* Define base font size for responsive scaling */
+        font-size: 2dvw;
     }
 }
 
 /* Mobile Devices (Landscape): tone down sizes for consistent display */
 @media screen and (max-width: 768px) and (orientation: landscape) {
     :root {
-    color-scheme: light dark;
-    /* Define color variables for light and dark modes */
-    /* NOTE: if resorting to fallback, force light mode */
-    --main-bg-color: light-dark(#f7f2eb, #080d14);
-    --home-graphic-color: light-dark(#0f3b67, #f0c498);
-    --main-text-color: light-dark(#161616, #f0f0f0);
-    --main-border-color: light-dark(#204a8c, #dfb573);
-    --main-header-color: light-dark(#f7f2eb, #080d14);
-    --link-highlight-color: light-dark(#7e1fea, #cce221);
-    --button-bg-color: light-dark(#437bd5, #bc842a);
+        /*Define text size variables*/
+        --header-font-size: 2rem;
+        --subheader-font-size: 1.5rem;
+        --graphic-font-size: 6rem;
+        --paragraph-font-size: 1.2rem;
+        --caption-font-size: 1rem;
+        --nav-font-size: 1.2rem;
+        --text-padding: 1rem;
 
-    /*Define text size variables*/
-    --header-font-size: 2rem;
-    --subheader-font-size: 1.5rem;
-    --graphic-font-size: 6rem;
-    --paragraph-font-size: 1.2rem;
-    --caption-font-size: 1rem;
-    --nav-font-size: 1.2rem;
-    --text-padding: 1rem;
+        /* Define margins and paddings variable */
+        --media-padding: 0;
 
-    /* Define animation times */
-    --fade-in-animation-time: 3s;
-    --from-right-animation-time: 1s;
-
-    /* Define margins and paddings variable */
-    --media-padding: 0;
-
-    /* Define media sizes */
-    --media-width: 80vw;
-    --media-height: auto;
-    --project-card-width: 60dvw;
-    
-    /* Define base font size for responsive scaling */
-    font-size: 2dvw;
+        /* Define media sizes */
+        --media-width: 80vw;
+        --media-height: auto;
+        --project-card-width: 60dvw;
+        
+        /* Define base font size for responsive scaling */
+        font-size: 2dvw;
     }
 }
 
