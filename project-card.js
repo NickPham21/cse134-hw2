@@ -57,8 +57,9 @@ class ProjectCard extends HTMLElement {
 
             :host {
                 display: block;
-                border: 0.5rem solid var(--main-border-color, darkblue);
-                background-color: white;
+                border: 0.5rem solid var(--project-card-border-color, darkblue);
+                border-radius: 0.5rem;
+                background-color: var(--project-card-title-bg-color, #e3dcd3);
                 width: fit-content;
                 height: auto;
                 animation: fromRight var(--from-right-animation-time, 0.5s) forwards;
@@ -73,25 +74,27 @@ class ProjectCard extends HTMLElement {
                 }
                 h2 {
                     margin: 0rem auto;
-                    padding: 0rem auto;
+                    padding: 0.5rem 0rem;
+                    color: var(--main-text-color, black);
                 }
                 p {
                     margin: 0rem auto;
-                    padding: 0rem auto;
+                    padding: 0.5rem 0rem;
                     width: var(--project-card-width, 50dvw);
                     max-width: var(--project-card-width, 50dvw);
-                    background-color: lightgray;
+                    color: var(--main-text-color, black);
+                    background-color: var(--project-card-desc-bg-color, #f7f2eb);
                 }
                 a {
                     display: block;
-                    padding: 0rem auto;
+                    padding: 0rem;
                     margin: 0rem auto;
-                    color: white;
+                    color: var(--main-header-color, white);
                     text-decoration: none;
-                    background-color: teal; 
+                    background-color: var(--project-card-link-bg-color, teal); 
                 }
                 a:hover {
-                    background-color: darkcyan;
+                    background-color: var(--project-card-link-highlight-color, darkcyan);
                 }
                 
             }
@@ -130,7 +133,7 @@ let project1 = new Project('Last Stand',
     'images/game_thumbnail_big.png', 
     'images/game_thumbnail_medium.png', 
     'images/game_thumbnail_small.png', 
-    'A top-down shooter where you fend off waves of enemies. One of my first game projects ever made using Unity.', 
+    'A top-down shooter where you fend off waves of enemies. One of my first game projects ever made.', 
     'projects/games.html');
 let project2 = new Project('Dead by Daylight Guide Website',
     '',

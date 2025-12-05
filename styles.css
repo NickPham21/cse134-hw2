@@ -4,12 +4,17 @@
     /* Define color variables for light and dark modes */
     /* NOTE: if resorting to fallback, force light mode */
     --main-bg-color: light-dark(#f7f2eb, #080d14);
-    --home-graphic-color: light-dark(#0f3b67, #f0c498);
+    --home-graphic-color: light-dark(#0f3b67, #b17436);
     --main-text-color: light-dark(#161616, #f0f0f0);
-    --main-border-color: light-dark(#204a8c, #dfb573);
+    --main-border-color: light-dark(#204a8c, #bc842a);
     --main-header-color: light-dark(#f7f2eb, #080d14);
     --link-highlight-color: light-dark(#7e1fea, #cce221);
-    --button-bg-color: light-dark(#437bd5, #bc842a);
+    --button-bg-color: light-dark(#437bd5, #dfb573);
+    --project-card-title-bg-color: light-dark(#f3f3f3, #121a22);
+    --project-card-desc-bg-color: light-dark(#f3f3f3, #121a22);
+    --project-card-border-color: light-dark(#204a8c, #bc842a);
+    --project-card-link-bg-color: light-dark(#437bd5, #bc842a);
+    --project-card-link-highlight-color: light-dark(#7e1fea, #cce221);
     /* Define animation times */
     --fade-in-animation-time: 3s;
     --from-right-animation-time: 1s;
