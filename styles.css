@@ -383,7 +383,10 @@ body {
         nav {
             font-size: var(--nav-font-size, 1rem);
             color: var(--main-header-color, white);
-            a{
+            ul {
+                list-style-type: none;
+            }
+            a {
                 color: var(--main-header-color, white);
                 text-decoration: none;
                 
