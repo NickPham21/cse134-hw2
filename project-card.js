@@ -128,16 +128,23 @@ let project1 = new Project('Last Stand',
     'images/game_thumbnail_big.png', 
     'images/game_thumbnail_medium.png', 
     'images/game_thumbnail_small.png', 
-    'One of my first game projects made using Unity.  It is a top-down shooter where you fend off waves of enemies.', 
+    'A top-down shooter where you fend off waves of enemies. One of my first game projects ever made using Unity.', 
     'projects/games.html');
-let project2 = new Project('Personal Website',
-    'images/website_thumbnail_big.png',
-    'images/website_thumbnail_medium.png',
-    'images/website_thumbnail_small.png',
-    'And this would be where I put my other websites... IF I HAD ANY',
-    'projects/website.html');
+let project2 = new Project('Dead by Daylight Guide Website',
+    '',
+    '',
+    'images/dbd_guide_thumbnail.png',
+    'A fan-made guide website for the popular game Dead by Daylight. It includes information on characters, perks, items, and strategies for killers. A passion project.',
+    'projects/websites.html');
+let project3 = new Project('Track and Solve', 
+    '', 
+    '', 
+    'images/track_and_solve_thumbnail.png', 
+    'A multiplayer game where players compete in a track and field style competition to solve math equations the fastest. Intended for educational purposes. A project made in collaboration with others.', 
+    'projects/games.html'
+)
 
-projects.push(project1, project2);
+projects.push(project1, project2, project3);
 
 // save all projects to local storage
 localStorage.setItem('projects', JSON.stringify(projects));
