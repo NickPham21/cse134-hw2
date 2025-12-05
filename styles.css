@@ -31,6 +31,7 @@
     /* Define media sizes */
     --media-width: 80vw;
     --media-height: auto;
+    --project-card-width: 50dvw;
 
     /* Define base font size for responsive scaling */
     font-size: 1dvw;
@@ -70,6 +71,7 @@
     /* Define media sizes */
     --media-width: 80vw;
     --media-height: auto;
+    --project-card-width: 70dvw;
     
     /* Define base font size for responsive scaling */
     font-size: 2dvw;
@@ -109,6 +111,7 @@
     /* Define media sizes */
     --media-width: 80vw;
     --media-height: auto;
+    --project-card-width: 60dvw;
     
     /* Define base font size for responsive scaling */
     font-size: 2dvw;

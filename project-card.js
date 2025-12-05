@@ -67,8 +67,8 @@ class ProjectCard extends HTMLElement {
                 text-align: center;
                 picture img {
                     padding: var(--media-padding, 0);
-                    width: var(--media-width, 80dvw);
-                    max-width: 80dvw;
+                    width: var(--project-card-width, 50dvw);
+                    max-width: var(--project-card-width, 50dvw);
                     height: var(--media-height, auto);
                 }
                 h2 {
@@ -78,6 +78,8 @@ class ProjectCard extends HTMLElement {
                 p {
                     margin: 0rem auto;
                     padding: 0rem auto;
+                    width: var(--project-card-width, 50dvw);
+                    max-width: var(--project-card-width, 50dvw);
                     background-color: lightgray;
                 }
                 a {
