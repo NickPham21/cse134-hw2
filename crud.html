@@ -5,8 +5,8 @@
         <title>Nick Pham | CRUD</title>
         <link rel="stylesheet" href="styles.css">
          <style>
-                /* disable animation for this form */
-                form {
+                /* disable animation for form and titles */
+                form, ol {
                     animation: none !important;
                     opacity: 1 !important;
                 }
@@ -25,23 +25,23 @@
                 <fieldset>
                     <legend><b>Project Manager</b></legend>
                     <label for="title">Project Title:</label><br>
-                    <input type="text" id="title" name="title" required><br><br>
+                    <input type="text" id="title" name="title" required><br>
 
                     <label for="description">Project Description:</label><br>
-                    <textarea id="description" name="description" rows="4" cols="50" required></textarea><br><br>
+                    <textarea id="description" name="description" rows="4" cols="50" placeholder="description goes here..." required></textarea><br>
 
                     <label for="thumbnail">Project Thumbnail:</label><br>
-                    <input type="file" id="thumbnail" name="thumbnail" required><br><br>
+                    <input type="file" id="thumbnail" name="thumbnail" required><br>
 
                     <label for="thumbnailMed">Project Thumbnail (Medium) (optional):</label><br>
-                    <input type="file" id="thumbnailMed" name="thumbnailMed"><br><br>
+                    <input type="file" id="thumbnailMed" name="thumbnailMed"><br>
 
                     <label for="thumbnailBig">Project Thumbnail (Large) (optional):</label><br>
-                    <input type="file" id="thumbnailBig" name="thumbnailBig"><br><br>
+                    <input type="file" id="thumbnailBig" name="thumbnailBig"><br>
 
                     <label for="link">Project Link (URL or local path):</label><br>
-                    <p>NOTE: please enter a valid URL (starting with http:// or https://) if using URL!</p>
-                    <input type="text" id="link" name="link" required><br><br>
+                    <aside>NOTE: please enter a valid URL (starting with http:// or https://) if using URL!</aside>
+                    <input type="text" id="link" name="link" required><br>
 
                     <button type="submit" id="project-manager-bttn">Create Project</button>
                 </fieldset>

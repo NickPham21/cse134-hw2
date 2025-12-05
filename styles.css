@@ -6,6 +6,7 @@
     --main-bg-color: light-dark(#f7f2eb, #080d14);
     --home-graphic-color: light-dark(#0f3b67, #b17436);
     --main-text-color: light-dark(#161616, #f0f0f0);
+    --secondary-text-color: light-dark(#555555, #aaaaaa);
     --main-border-color: light-dark(#204a8c, #bc842a);
     --main-header-color: light-dark(#f7f2eb, #080d14);
     --link-highlight-color: light-dark(#7e1fea, #cce221);
@@ -37,7 +38,7 @@
         --media-padding: 0;
 
         /* Define media sizes */
-        --media-width: 80vw;
+        --media-width: 60vw;
         --media-height: auto;
         --project-card-width: 50dvw;
 
@@ -217,6 +218,7 @@ body {
         h2 {
             margin: var(--subheader-font-size, 1rem);
             color: var(--main-text-color, black);
+            font-size: var(--subheader-font-size, 2rem);
         }
         .graphic {
             color: var(--home-graphic-color, darkblue);
@@ -224,6 +226,15 @@ body {
             font-size: var(--graphic-font-size, 7rem);
             font-weight: bold;
             animation: fadeIn var(--fade-in-animation-time, 3s) forwards
+        }
+
+        ol {
+            color: var(--main-text-color, black);
+            margin: var(--text-padding, 1rem);
+            font-size: var(--paragraph-font-size, 1.5rem);
+            padding: var(--text-padding, 1rem);
+            /*Animation*/
+            animation: fromRight var(--from-right-animation-time, 0.5s) forwards;
         }
 
         p{
@@ -251,6 +262,11 @@ body {
             animation: fromRight var(--from-right-animation-time, 0.5s) forwards;
             animation-delay: calc(2 * var(--from-right-animation-time, 0.5s));
         }
+        aside, cite {
+            color: var(--secondary-text-color, gray);
+            font-size: 1rem;
+            padding: var(--text-padding, 1rem);
+        }
         address {
             color: var(--main-text-color, black);
             font-size: var(--paragraph-font-size, 1.5rem);
@@ -268,6 +284,10 @@ body {
             opacity: 0;
             animation: fromRight var(--from-right-animation-time, 0.5s) forwards;
             animation-delay: var(--from-right-animation-time, 0.5s);
+            fieldset {
+                width: fit-content;
+                padding: var(--text-padding, 1rem);
+            }
         }
 
         /* Media Styles */
@@ -336,6 +356,21 @@ body {
             text-decoration: underline;
             color: var(--link-highlight-color, blueviolet);
             font-size: var(--nav-font-size, 1rem);
+        }
+
+        /* Button Styles */
+        button {
+            margin: 0.5rem 0.5rem; 
+            font-size: 1rem;
+            padding: 0.5rem 1rem;
+            border: 0.2rem solid var(--main-bg-color, white);
+            border-radius: 0.5rem;
+            background-color: var(--button-bg-color, lightblue);
+            color: var(--main-header-color, white);
+            cursor: pointer;
+        }
+        button:hover {
+            background-color: var(--link-highlight-color, blueviolet);
         }
 
         

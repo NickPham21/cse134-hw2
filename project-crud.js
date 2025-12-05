@@ -55,6 +55,7 @@ form.addEventListener('submit', (event) => {
 // Show current project titles in local storage as a list
     // Note: does NOT actually show the project card themselves! Press "load local" to see them.
 function showStoredProjects() {
+    // get the project list container 
     const projectList = document.querySelector('project-list ol');
     // clear existing list
     projectList.innerHTML = '';
