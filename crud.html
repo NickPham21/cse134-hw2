@@ -58,24 +58,23 @@
 
         <footer>
             <nav>
-                <strong>Navigation</strong>
+                <input type="checkbox" id="nav-toggle" class="nav"/>
+                <label for="nav-toggle" class="nav">Navigation</label>
                 <ul>
                     <li><a href="index.html">Home</a></li>
                     <li><a href="about.html">About</a></li>
                     <li><a href="contacts.html">Contacts</a></li>
                     <li><a href="projects.html">Projects</a></li>
                     <li><a href="involvements.html">Involvements</a></li>
-                    <li><a href="form-with-js.html">Form (With JS)</a></li>
-                    <li><a href="form-no-js.html">Form (No JS)</a></li>
                 </ul>
             </nav>
+            <noscript>
+                Light and Dark mode are configured to use system preferences by default. To manually switch between modes, please enable JavaScript in your browser.
+                <br>Additionally, some interactive features may not function properly without JavaScript enabled.
+            </noscript>
         </footer>
         <script src="theme-toggle.js"></script>
         <script type="module" src="project-card.js"></script>
         <script type="module" src="project-crud.js"></script>
-        <noscript>
-        Light and Dark mode are configured to use system preferences by default. To manually switch between modes, please enable JavaScript in your browser.
-        <br>Additionally, some interactive features may not function properly without JavaScript enabled.
-        </noscript>
     </body>
 </html>

@@ -383,7 +383,21 @@ body {
         nav {
             font-size: var(--nav-font-size, 1rem);
             color: var(--main-header-color, white);
+            input#nav-toggle {
+                display: none;
+            }
+            input#nav-toggle:checked ~ ul {
+                display: block;
+            }
+            label.nav {
+                font-weight: bold;
+            }
+            label.nav:hover {
+                cursor: pointer;
+                color: var(--link-highlight-color, blueviolet);
+            }
             ul {
+                display: none;
                 list-style-type: none;
             }
             a {
