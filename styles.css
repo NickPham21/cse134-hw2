@@ -196,14 +196,12 @@ body {
         bttn-group {
             margin-left: auto; /* To align button group to the right */
             display: flex;
-            gap: 1rem; /* Space between buttons */
         }
         button {
             margin: 0; /* To align buttons to the right */
             font-size: 1rem;
             padding: 0.5rem 1rem;
-            border: 0.2rem solid var(--main-bg-color, white);
-            border-radius: 0.5rem;
+            border: 0rem;
             background-color: var(--button-bg-color, lightblue);
             color: var(--main-header-color, white);
             cursor: pointer;
